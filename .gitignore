@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Env & secrets
+.env
+
+# Database files (dev)
+*.db
+*.sqlite3
+
+# Flutter / Dart
+mobile/build/
+mobile/.dart_tool/
+mobile/.packages
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.metadata
+mobile/ios/Pods/
+mobile/android/.gradle/
+mobile/android/local.properties
+*.iml
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Deploy artifacts
+dist/
+*.log
