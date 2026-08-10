@@ -283,17 +283,29 @@ in-memory store/broker is what the worker and demo bus use in dev.
 
 ## Deploying the free-tier prototype
 
+The live deployment is `https://bustracker-api-dooh.onrender.com` (32
+districts, 26,840 villages from all 31 census districts plus demo seed).
+
 1. **Supabase** — create a project, then run `backend/migrations/001_initial.sql`
    in the SQL editor (enables PostGIS and creates all tables/indexes), or apply
-   it programmatically with `python -m scripts.migrate`.
-2. **Upstash Redis** — create a database; copy the `redis://` URL.
+   it programmatically with `python -m scripts.migrate`; load all districts with
+   `python -m scripts.deploy_prod`.
+   - **Use the session-pooler connection string for Render**: the direct
+     `db.<ref>.supabase.co` host resolves to IPv6 only, which Render's free
+     containers cannot route to (`Network is unreachable`). The pooler host
+     (`aws-0-<region>.pooler.supabase.com`, username `postgres.<project-ref>`)
+     is IPv4 and is what `DATABASE_URL` must point at, e.g.
+     `postgresql+asyncpg://postgres.<ref>:<password>@aws-0-ap-south-1.pooler.supabase.com:5432/postgres`.
+2. **Upstash Redis** — create a database; copy the `redis://`/`rediss://` URL.
 3. **Render** — push the repo, then use `render.yaml` (Blueprint) to deploy the
-   API as a Docker web service on the free plan. Set `DATABASE_URL`,
-   `REDIS_URL`, `JWT_SECRET`, and `ADMIN_API_KEY` as secrets.
+   API as a Docker web service on the free plan. Set `DATABASE_URL` (pooler URL
+   above) and `REDIS_URL`; `JWT_SECRET` and `ADMIN_API_KEY` are auto-generated
+   by Render — copy them from the service's Environment tab.
 4. **UptimeRobot** — ping `GET /health` every 5 minutes to keep the free
    instance awake.
-5. **App** — point the mobile client at the Render URL, then run the village
-   ingestion and seed data.
+5. **App** — build the release APK from the GitHub Actions `apk-build.yml`
+   workflow; it bakes in the Firebase `FIREBASE_*` repo secrets and the
+   `API_BASE_URL` repository variable (the Render URL).
 6. **Admin** — see `docs/ADMIN.md` for the curl workflow (approve buses,
    verify routes, watch platform stats).
 
