@@ -59,6 +59,10 @@ class Settings(BaseSettings):
 
     # --- OSRM routing ------------------------------------------------------
     osrm_base_url: str = "https://router.project-osrm.org"
+    # Comma-separated alternative public OSRM instances tried in order when
+    # the primary fails (rate limits / outages). Backend-to-backend, so CORS
+    # does not apply.
+    osrm_fallback_base_urls: str = "https://routing.openstreetmap.de/routed-car"
     osrm_timeout_seconds: float = 10.0
     route_snap_threshold_m: float = 1500.0
     route_duplicate_radius_m: float = 1500.0

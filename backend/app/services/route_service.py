@@ -33,6 +33,16 @@ def configure_osrm(client: httpx.AsyncClient | None = None, fallback: bool = Fal
     _osrm_fallback_mode = fallback
 
 
+def _osrm_base_urls() -> list[str]:
+    """Primary OSRM URL plus any configured fallbacks, de-duplicated."""
+    urls: list[str] = [settings.osrm_base_url]
+    for candidate in settings.osrm_fallback_base_urls.split(","):
+        candidate = candidate.strip().rstrip("/")
+        if candidate and candidate not in urls:
+            urls.append(candidate)
+    return urls
+
+
 def _fallback_polyline(start: Point, end: Point) -> list[Point]:
     """Deterministic straight-ish polyline between two points (no network).
 
@@ -60,22 +70,29 @@ async def fetch_driving_polyline(
     http = client or _osrm_http_client
     if http is None:
         http = httpx.AsyncClient(timeout=settings.osrm_timeout_seconds)
-    url = (
-        f"{settings.osrm_base_url}/route/v1/driving/"
-        f"{end[1]},{end[0]};{start[1]},{start[0]}"
-        "?overview=full&geometries=geojson"
-    )
-    resp = await http.get(url)
-    resp.raise_for_status()
-    data = resp.json()
-    routes = data.get("routes") or []
-    if not routes:
-        raise ValueError("OSRM returned no route")
-    coords = routes[0].get("geometry", {}).get("coordinates", [])
-    if len(coords) < 2:
-        raise ValueError("OSRM returned degenerate route")
-    # GeoJSON coordinates are (lng, lat).
-    return [(lat, lng) for lng, lat in coords]
+    last_error: Exception | None = None
+    for base_url in _osrm_base_urls():
+        url = (
+            f"{base_url}/route/v1/driving/"
+            f"{end[1]},{end[0]};{start[1]},{start[0]}"
+            "?overview=full&geometries=geojson"
+        )
+        try:
+            resp = await http.get(url)
+            resp.raise_for_status()
+            data = resp.json()
+            routes = data.get("routes") or []
+            if not routes:
+                raise ValueError("OSRM returned no route")
+            coords = routes[0].get("geometry", {}).get("coordinates", [])
+            if len(coords) < 2:
+                raise ValueError("OSRM returned degenerate route")
+            # GeoJSON coordinates are (lng, lat).
+            return [(lat, lng) for lng, lat in coords]
+        except Exception as exc:  # noqa: BLE001 - try the next server
+            logger.warning("OSRM route fetch failed via %s: %s", base_url, exc)
+            last_error = exc
+    raise last_error if last_error is not None else ValueError("No OSRM server configured")
 
 
 def route_fingerprint(start: Point, end: Point) -> str:
