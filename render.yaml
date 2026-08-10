@@ -6,6 +6,7 @@ services:
     dockerfilePath: ./backend/Dockerfile
     plan: free
     healthCheckPath: /health
+    preDeployCommand: python -m scripts.migrate
     envVars:
       - key: ENVIRONMENT
         value: prod
@@ -18,7 +19,7 @@ services:
       - key: SMS_PROVIDER
         value: console
       - key: CORS_ORIGINS
-        value: "*"
+        value: '["*"]'
       - key: DATABASE_URL
         sync: false
       - key: REDIS_URL
