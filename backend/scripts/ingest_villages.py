@@ -96,41 +96,45 @@ async def upsert(
     elif not district.name_ta:
         district.name_ta = DISTRICT_NAME_TA.get(district_name)
 
-    taluk_cache: dict[str, Taluk] = {}
-    created = 0
+    # Load the district's taluks and villages in a handful of queries instead
+    # of one round-trip per record (the previous loop issued ~2k SELECTs for a
+    # large district, which took minutes against remote Postgres).
+    taluks = (
+        await db.scalars(select(Taluk).where(Taluk.district_id == district.id))
+    ).all()
+    taluk_by_name = {t.name: t for t in taluks}
     for rec in merged.values():
         taluk_name = rec.taluk or "Unknown"
-        if taluk_name not in taluk_cache:
-            taluk = await db.scalar(
-                select(Taluk).where(
-                    Taluk.district_id == district.id, Taluk.name == taluk_name
-                )
+        if taluk_name not in taluk_by_name:
+            taluk_by_name[taluk_name] = Taluk(
+                district_id=district.id, name=taluk_name
             )
-            if taluk is None:
-                taluk = Taluk(district_id=district.id, name=taluk_name)
-                db.add(taluk)
-                await db.flush()
-            taluk_cache[taluk_name] = taluk
-        taluk = taluk_cache[taluk_name]
+            db.add(taluk_by_name[taluk_name])
+    await db.flush()  # assign taluk ids for the village lookups below
 
-        # The official census code is the stable identity: two villages in one
-        # taluk can share a name but carry different codes, and looking them up
-        # by name alone would silently merge a listed village. Towns (no code)
-        # fall back to the name match.
-        if rec.census_code:
-            village = await db.scalar(
-                select(Village).where(
-                    Village.taluk_id == taluk.id,
-                    Village.census_code == rec.census_code,
-                )
-            )
+    villages = (
+        await db.scalars(select(Village).where(Village.district_id == district.id))
+    ).all()
+    # The official census code is the stable identity: two villages in one
+    # taluk can share a name but carry different codes, and looking them up
+    # by name alone would silently merge a listed village. Towns (no code)
+    # fall back to the name match.
+    by_code: dict[tuple[int, str], Village] = {}
+    by_name: dict[tuple[int, str], Village] = {}
+    for v in villages:
+        if v.census_code:
+            by_code[(v.taluk_id, v.census_code)] = v
         else:
-            village = await db.scalar(
-                select(Village).where(
-                    Village.taluk_id == taluk.id,
-                    Village.name_normalized == normalize_name(rec.name),
-                )
-            )
+            by_name[(v.taluk_id, v.name_normalized)] = v
+
+    created = 0
+    new_villages: list[Village] = []
+    for rec in merged.values():
+        taluk = taluk_by_name[rec.taluk or "Unknown"]
+        if rec.census_code:
+            village = by_code.get((taluk.id, rec.census_code))
+        else:
+            village = by_name.get((taluk.id, normalize_name(rec.name)))
         if village is None:
             village = Village(
                 district_id=district.id,
@@ -146,8 +150,14 @@ async def upsert(
                 source="|".join(rec.sources),
                 needs_review=not (rec.lat is not None and rec.lng is not None),
             )
-            db.add(village)
+            new_villages.append(village)
             created += 1
+            # Register it so a later record with the same identity updates the
+            # same in-memory object instead of creating a duplicate row.
+            if rec.census_code:
+                by_code[(taluk.id, rec.census_code)] = village
+            else:
+                by_name[(taluk.id, normalize_name(rec.name))] = village
         else:
             if rec.lat is not None and rec.lng is not None:
                 village.lat, village.lng = rec.lat, rec.lng
@@ -157,6 +167,7 @@ async def upsert(
                 village.name_ta = rec.name_ta
             if rec.place_type and rec.place_type != "village":
                 village.place_type = rec.place_type
+    db.add_all(new_villages)
     await db.commit()
     logger.info("Loaded %s new villages for %s", created, district_name)
     return {"loaded": True, "created": created, "reconciliation": report.to_dict()}

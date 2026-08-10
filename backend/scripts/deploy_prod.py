@@ -15,6 +15,8 @@ an already-loaded database only upgrades coordinates and adds nothing new.
 
 Options:
     --only A,B        ingest a subset of districts (spot checks)
+    --sleep N         seconds to pause between districts (default 0; only
+                      matters when --extract performs live Overpass fetches)
     --skip-migrate    assume the schema is already applied
     --skip-seed       do not seed demo data
 """
@@ -48,6 +50,7 @@ def run_step(cmd: list[str], label: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--only", help="Comma-separated districts to ingest")
+    parser.add_argument("--sleep", type=float, default=0.0)
     parser.add_argument("--skip-migrate", action="store_true")
     parser.add_argument("--skip-seed", action="store_true")
     args = parser.parse_args()
@@ -67,7 +70,7 @@ def main() -> None:
 
     ingest = [
         sys.executable, "-m", "scripts.enrich_all_districts",
-        "--input", str(census), "--no-extract",
+        "--input", str(census), "--no-extract", "--sleep", str(args.sleep),
     ]
     if args.only:
         ingest += ["--only", args.only]

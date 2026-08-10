@@ -72,7 +72,7 @@ DATA: dict[str, dict[str, list[tuple[str, str, float, float, str]]]] = {
     "Vellore": {
         "Vellore": [("Vellore", "வேலூர்", 12.9165, 79.1325, "city")],
     },
-    "Kanchipuram": {
+    "Kancheepuram": {
         "Kanchipuram": [("Kanchipuram", "காஞ்சிபுரம்", 12.8352, 79.7049, "city")],
     },
     "Erode": {
