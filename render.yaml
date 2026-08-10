@@ -6,7 +6,6 @@ services:
     dockerfilePath: ./backend/Dockerfile
     plan: free
     healthCheckPath: /health
-    preDeployCommand: python -m scripts.migrate
     envVars:
       - key: ENVIRONMENT
         value: prod
