@@ -49,6 +49,34 @@ def test_missing_coords_kept_and_flagged():
     # Never dropped: village survives without coordinates.
 
 
+def test_merge_keeps_same_name_distinct_census_codes():
+    # Madurai's census has intra-block villages that share a name but carry
+    # different official codes (e.g. 13 Arumbanur rows across its blocks).
+    # Merging them by name alone would silently drop a listed village.
+    a = SourceRecord(name="Arumbanur", taluk="Madurai North", census_code="101", source="tn-census")
+    b = SourceRecord(name="Arumbanur", taluk="Madurai North", census_code="203", source="tn-census")
+    osm = SourceRecord(name="Arumbanur", taluk="Madurai North", lat=9.95, lng=78.12, source="osm")
+    merged, report = merge_village_sources([a, b, osm])
+    assert len(merged) == 2
+    assert report.missing_coords == 1
+    assert report.dropped == []
+    codes = sorted(r.census_code or "" for r in merged.values())
+    assert codes == ["101", "203"]
+    # OSM coordinates only attach to one of the split rows, never to both.
+    with_coords = [r for r in merged.values() if r.has_coords]
+    assert len(with_coords) == 1
+
+
+def test_merge_same_name_same_code_still_dedupes():
+    a = SourceRecord(name="Olakkur", taluk="Tindivanam", census_code="101", source="tn-census")
+    b = SourceRecord(name="Olakkur", taluk="Tindivanam", census_code="101", lat=12.05, lng=79.65, source="osm")
+    merged, _ = merge_village_sources([a, b])
+    assert len(merged) == 1
+    entry = next(iter(merged.values()))
+    assert entry.census_code == "101"
+    assert entry.lat == 12.05
+
+
 def test_reconciliation_blocks_on_gap():
     recs = [
         SourceRecord(name="A", taluk="Tindivanam"),
@@ -84,6 +112,19 @@ def test_parse_census_csv():
     assert first.census_code == "607101"
     assert first.lat == 12.1
     assert first.name_ta == "ஒலக்கூர்"
+    assert first.place_type == "village"
+
+
+def test_parse_census_csv_preserves_place_type():
+    text = (
+        "village,taluk,district,census_code,lat,lng,name_ta,place_type\n"
+        "Usilampatti,Madurai North,Madurai,,9.97,77.80,உசிலம்பட்டி,town\n"
+        "Olakkur,Tindivanam,Villupuram,607101,12.1,79.7,ஒலக்கூர்,village\n"
+    )
+    records = parse_census_csv(text)
+    by_name = {r.name: r for r in records}
+    assert by_name["Usilampatti"].place_type == "town"
+    assert by_name["Olakkur"].place_type == "village"
 
 
 TN_CSV = """S.No,"District 
@@ -124,6 +165,43 @@ def test_census_expected_by_taluk_counts_every_village():
         SourceRecord(name="NoTaluk"),
     ]
     assert census_expected_by_taluk(recs) == {"Gingee": 1, "Kanai": 2}
+
+
+async def test_fetch_osm_places_parses_coordinates():
+    import httpx
+
+    from app.services import village_pipeline as vp
+
+    payload = {
+        "elements": [
+            {
+                "type": "node",
+                "id": 1,
+                "lat": 9.95,
+                "lon": 78.12,
+                "tags": {"name": "Madurai", "place": "city", "name:ta": "மதுரை"},
+            },
+            {
+                "type": "node",
+                "id": 2,
+                "lat": 10.1,
+                "lon": 77.9,
+                "tags": {"name": "Thenkarai", "place": "village"},
+            },
+        ]
+    }
+
+    def handler(request):
+        # Regression: `out tags` returns no geometry, so coordinates are lost.
+        assert b"out body;" in request.url.params["data"].encode()
+        return httpx.Response(200, json=payload)
+
+    client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    records = await vp.fetch_osm_places(9.0, 77.0, 11.0, 79.0, client=client)
+    assert len(records) == 2
+    assert records[0].lat == 9.95 and records[0].lng == 78.12
+    assert records[0].name_ta == "மதுரை"
+    assert records[1].lat == 10.1 and records[1].place_type == "village"
 
 
 def test_enrich_with_osm_coords_attaches_unambiguous_matches():

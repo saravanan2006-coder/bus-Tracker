@@ -1,10 +1,13 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 /// Runtime configuration. Override at build time with:
 ///   flutter run --dart-define=API_BASE_URL=https://api.example.com
 ///
 /// Defaults target a locally running FastAPI backend (Android emulator
-/// reaches the host machine via 10.0.2.2).
+/// reaches the host machine via 10.0.2.2; the web build talks to the
+/// same machine over localhost).
 class AppConfig {
   AppConfig._();
 
@@ -12,6 +15,14 @@ class AppConfig {
 
   static String get apiBaseUrl {
     if (_apiBaseOverride.isNotEmpty) return _apiBaseOverride;
+    if (kIsWeb) {
+      // Web builds are served from the same machine that runs the backend,
+      // so derive the host from the page URL (works on LAN, not just
+      // localhost). Override with --dart-define=API_BASE_URL for remote.
+      final host = Uri.base.host;
+      if (host.isNotEmpty) return 'http://$host:8000';
+      return 'http://localhost:8000';
+    }
     if (Platform.isAndroid) return 'http://10.0.2.2:8000';
     return 'http://localhost:8000';
   }

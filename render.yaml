@@ -2,7 +2,7 @@ services:
   - type: web
     name: bustracker-api
     runtime: docker
-    repo: https://github.com/your-org/bus-tracker
+    repo: https://github.com/saravanan2006-coder/bus-Tracker
     dockerfilePath: ./backend/Dockerfile
     plan: free
     healthCheckPath: /health

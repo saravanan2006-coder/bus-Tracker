@@ -84,6 +84,8 @@ class Settings(BaseSettings):
     # --- Village pipeline ---------------------------------------------------
     village_snap_radius_m: float = 1500.0
     overpass_api_url: str = "https://overpass-api.de/api/interpreter"
+    # Overpass blocks clients that omit or spoof a browser User-Agent.
+    overpass_user_agent: str = "bustracker-pipeline/1.0 (contact: dev@bustracker.local)"
     overpass_timeout_seconds: float = 240.0
 
     @property

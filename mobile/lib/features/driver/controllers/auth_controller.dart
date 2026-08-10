@@ -55,14 +55,23 @@ class AuthController extends ChangeNotifier {
 
   /// True when a previously stored session can be restored.
   Future<bool> restoreSession() async {
-    final token = await AppStorage.accessToken;
-    if (token == null) return false;
-    _repo.setAccessToken(token);
-    return true;
+    try {
+      final token = await AppStorage.accessToken;
+      if (token == null) return false;
+      _repo.setAccessToken(token);
+      return true;
+    } catch (_) {
+      // Secure storage is unavailable off HTTPS (e.g. plain-HTTP web demo).
+      return false;
+    }
   }
 
   Future<void> logout() async {
-    await AppStorage.clearTokens();
+    try {
+      await AppStorage.clearTokens();
+    } catch (_) {
+      // Best-effort; the in-memory token is cleared below regardless.
+    }
     _repo.setAccessToken(null);
   }
 }

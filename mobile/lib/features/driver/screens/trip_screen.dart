@@ -99,7 +99,7 @@ class _TripScreenState extends State<TripScreen> {
         title: Text(widget.bus.busNumber),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: _ending ? null : _endTrip,
         ),
       ),
       body: SafeArea(

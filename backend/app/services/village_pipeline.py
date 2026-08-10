@@ -90,7 +90,10 @@ def merge_village_sources(
     """Merge records, de-duplicating by (taluk, normalized name).
 
     Coordinates and Tamil names from OSM enrich census records; a village
-    missing coordinates is kept and flagged, never dropped.
+    missing coordinates is kept and flagged, never dropped. Two villages in
+    the same block that merely share a name are kept separate when their
+    census codes differ — merging them would silently lose an official
+    village, which the reconciliation gate must never allow.
     """
     merged: dict[str, SourceRecord] = {}
     dropped: list[str] = []
@@ -99,6 +102,17 @@ def merge_village_sources(
         key = f"{normalize_name(rec.taluk or '')}:{normalize_name(rec.name)}"
         if key in merged:
             existing = merged[key]
+            if (
+                rec.census_code
+                and existing.census_code
+                and rec.census_code != existing.census_code
+            ):
+                # Same name, different census codes: two distinct villages.
+                # Split them so neither is dropped from the reconciliation.
+                merged[f"{key}#{existing.census_code}"] = existing
+                merged[key] = rec
+                rec.sources = {rec.source}
+                continue
             # OSM coordinates win (they are GPS-accurate); keep the rest.
             if rec.lat is not None and rec.lng is not None:
                 existing.lat, existing.lng = rec.lat, rec.lng
@@ -162,9 +176,12 @@ async def fetch_osm_places(
     (
       node["place"~"^{place_re}$"]["name"]({min_lat:.6f},{min_lng:.6f},{max_lat:.6f},{max_lng:.6f});
     );
-    out tags;
+    out body;
     """
-    http = client or httpx.AsyncClient(timeout=settings.overpass_timeout_seconds)
+    http = client or httpx.AsyncClient(
+        timeout=settings.overpass_timeout_seconds,
+        headers={"User-Agent": settings.overpass_user_agent},
+    )
     resp = await http.get(
         settings.overpass_api_url, params={"data": query}
     )
@@ -193,7 +210,7 @@ async def fetch_osm_places(
 def parse_census_csv(text: str) -> list[SourceRecord]:
     """Parse a census village-directory style CSV.
 
-    Expected columns: village,taluk,district,census_code[,lat,lng][,name_ta]
+    Expected columns: village,taluk,district,census_code[,lat,lng][,name_ta][,place_type]
     """
     records: list[SourceRecord] = []
     reader = csv.DictReader(io.StringIO(text))
@@ -215,6 +232,7 @@ def parse_census_csv(text: str) -> list[SourceRecord]:
                 lat=lat,
                 lng=lng,
                 census_code=row.get("census_code") or None,
+                place_type=(row.get("place_type") or "village").strip(),
                 source="census",
             )
         )

@@ -406,15 +406,25 @@ class Favorite {
     required this.id,
     required this.fromVillageId,
     required this.toVillageId,
+    this.fromVillage,
+    this.toVillage,
   });
 
   final int id;
   final int fromVillageId;
   final int toVillageId;
+  final VillageSummary? fromVillage;
+  final VillageSummary? toVillage;
 
   factory Favorite.fromJson(Map<String, dynamic> json) => Favorite(
         id: json['id'] as int,
         fromVillageId: json['from_village_id'] as int,
         toVillageId: json['to_village_id'] as int,
+        fromVillage: json['from_village'] == null
+            ? null
+            : VillageSummary.fromJson(json['from_village'] as Map<String, dynamic>),
+        toVillage: json['to_village'] == null
+            ? null
+            : VillageSummary.fromJson(json['to_village'] as Map<String, dynamic>),
       );
 }

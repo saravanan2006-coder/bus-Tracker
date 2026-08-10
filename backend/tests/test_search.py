@@ -15,6 +15,11 @@ async def test_districts_and_villages(client):
     assert district["taluk_count"] >= 7
     assert district["village_count"] >= 10
 
+    # The per-district village count must never be inflated by a cross-join
+    # with taluks (regression: 22 taluks x 1517 villages = 33374).
+    all_villages = await client.get(f"/api/v1/districts/{district['id']}/villages")
+    assert district["village_count"] == len(all_villages.json())
+
     resp = await client.get(f"/api/v1/districts/{district['id']}/villages")
     assert resp.status_code == 200
     villages = resp.json()
@@ -78,9 +83,12 @@ async def test_route_pair_search(db, client, fixtures):
 async def test_bus_search_by_number(client, fixtures, db):
     driver, token = await _driver_token(db, phone="+919812345682")
     await _setup_bus_and_route(db, fixtures, token, client, "99A")
-    resp = await client.get("/api/v1/buses/search", params={"q": "99a"})
+    resp = await client.get("/api/v1/buses/search", params={"q": "9A"})
     assert resp.status_code == 200
     assert any(b["bus_number"] == "99A" for b in resp.json()["data"])
+    partial = await client.get("/api/v1/buses/search", params={"q": "99"})
+    assert partial.status_code == 200
+    assert any(b["bus_number"] == "99A" for b in partial.json()["data"])
 
 
 async def test_bus_history(client, fixtures, db):
@@ -110,7 +118,14 @@ async def test_favorites_and_alerts(client):
     assert resp.status_code == 200
     resp = await client.get("/api/v1/favorites", params={"device_id": "device-1"})
     assert resp.status_code == 200
-    assert resp.json()["data"]
+    data = resp.json()["data"]
+    assert data
+    # Favorites must carry village names so the app can render them without
+    # re-fetching district-scoped village lists.
+    fav = data[0]
+    assert fav["from_village"]["id"] == 1
+    assert fav["from_village"]["name"] == "Villupuram"
+    assert fav["to_village"]["name"] == "Mugaiyur"
 
     resp = await client.post(
         "/api/v1/alerts",

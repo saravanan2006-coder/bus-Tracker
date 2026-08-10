@@ -5,6 +5,7 @@ import pytest
 
 from app.services.geo import (
     haversine,
+    point_at_fraction,
     point_segment_distance,
     point_to_polyline_distance,
     polyline_length,
@@ -73,3 +74,22 @@ def test_speed_between():
     # ~55.5 km in 1 hour from Chennai toward the south should be ~55 km/h.
     speed = speed_between(CHENNAI, (12.58, 80.27), 3600)
     assert 50 < speed < 60
+
+
+def test_point_at_fraction_endpoints():
+    line = [(10.0, 78.0), (10.0, 78.10)]
+    assert point_at_fraction(line, 0.0) == line[0]
+    assert point_at_fraction(line, 1.0) == line[-1]
+
+
+def test_point_at_fraction_midpoint():
+    line = [(10.0, 78.0), (10.0, 78.10)]
+    mid = point_at_fraction(line, 0.5)
+    assert haversine(mid, (10.0, 78.05)) < 1.0
+
+
+def test_point_at_fraction_uses_distance_not_index():
+    # Two segments of very different lengths; 0.5 should land in the long one.
+    line = [(10.0, 78.0), (10.0, 78.0), (10.0, 78.10)]
+    p = point_at_fraction(line, 0.5)
+    assert haversine(p, (10.0, 78.05)) < 1.0

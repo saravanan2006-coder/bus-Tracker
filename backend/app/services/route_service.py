@@ -109,6 +109,9 @@ async def build_route(
 
         raise BadRequestError("Start and destination must differ.")
 
+    # has_coords was checked above, so lat/lng are present here.
+    assert from_village.lat is not None and from_village.lng is not None
+    assert to_village.lat is not None and to_village.lng is not None
     start: Point = (from_village.lat, from_village.lng)
     end: Point = (to_village.lat, to_village.lng)
     fp = route_fingerprint(start, end)
@@ -125,14 +128,16 @@ async def build_route(
         )
     )
     if existing is not None:
-        stops = (
-            (await db.execute(
-                select(RouteStop).where(RouteStop.route_id == existing.id)
-            ))
+        stops = list(
+            (
+                await db.execute(
+                    select(RouteStop).where(RouteStop.route_id == existing.id)
+                )
+            )
             .scalars()
             .all()
         )
-        return RouteBuildResult(existing, list(stops), created=False)
+        return RouteBuildResult(existing, stops, created=False)
 
     # 2) Fetch the driving polyline.
     try:
@@ -178,11 +183,12 @@ async def build_route(
     for village in villages:
         if village.id in (from_village.id, to_village.id):
             continue
-        dist = point_to_polyline_distance((village.lat, village.lng), polyline)
+        if village.lat is None or village.lng is None:
+            continue
+        point: Point = (village.lat, village.lng)
+        dist = point_to_polyline_distance(point, polyline)
         if dist <= settings.route_snap_threshold_m:
-            progress, _, _, _ = project_point_on_polyline(
-                (village.lat, village.lng), polyline
-            )
+            progress, _, _, _ = project_point_on_polyline(point, polyline)
             snapped.append((progress, village))
 
     stops: list[RouteStop] = []

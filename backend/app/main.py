@@ -1,7 +1,9 @@
 """FastAPI application entrypoint."""
 from __future__ import annotations
 
+import asyncio
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -24,7 +26,25 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     await init_db()
     logger.info("Database initialised")
+    demo_task: asyncio.Task | None = None
+    if os.environ.get("RUN_DEMO_BUS") == "1":
+        from scripts.run_demo_bus import run_demo_loop
+
+        demo_task = asyncio.create_task(run_demo_loop())
+        logger.info("Demo bus simulator started")
+    alert_task: asyncio.Task | None = None
+    if os.environ.get("ALERT_WORKER") == "1":
+        from app.services.alert_worker import run_alert_worker
+
+        alert_task = asyncio.create_task(run_alert_worker())
+        logger.info("Alert worker started")
     yield
+    if demo_task is not None:
+        demo_task.cancel()
+        logger.info("Demo bus simulator stopped")
+    if alert_task is not None:
+        alert_task.cancel()
+        logger.info("Alert worker stopped")
 
 
 app = FastAPI(

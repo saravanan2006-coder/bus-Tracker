@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/geo/detector.dart';
 import '../../../core/localization/localization_controller.dart';
 import '../../../core/models/models.dart';
 import '../../../shared_widgets/empty_view.dart';
@@ -38,6 +39,19 @@ class _DriverHomeScreenState extends State<DriverHomeScreen> {
     if (routeId == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(loc.t('noRouteAssigned'))),
+      );
+      return;
+    }
+    bool granted;
+    try {
+      granted = await DistrictDetector.ensureLocationPermission();
+    } catch (_) {
+      granted = false;
+    }
+    if (!mounted) return;
+    if (!granted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(loc.t('permissionDenied'))),
       );
       return;
     }

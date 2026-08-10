@@ -1,9 +1,21 @@
-"""Test fixtures: isolated SQLite database + FastAPI test client."""
+"""Test fixtures: isolated database + FastAPI test client.
+
+By default the suite runs against a scratch SQLite file. To run the same
+suite against PostgreSQL (production dialect), point TEST_DATABASE_URL at a
+Postgres database, e.g. from `docker compose up`:
+
+    docker compose up -d
+    TEST_DATABASE_URL=postgresql+asyncpg://bustracker:bustracker@localhost:5432/bustracker_test \
+        python -m pytest
+"""
 from __future__ import annotations
 
 import os
 
-os.environ.setdefault("DATABASE_URL", "sqlite+aiosqlite:///./test_bustracker.db")
+_DEFAULT_SQLITE = "sqlite+aiosqlite:///./test_bustracker.db"
+_TEST_DATABASE_URL = os.environ.get("TEST_DATABASE_URL", "")
+
+os.environ["DATABASE_URL"] = _TEST_DATABASE_URL or _DEFAULT_SQLITE
 os.environ["REDIS_ENABLED"] = "false"
 os.environ["DEBUG"] = "false"
 os.environ["ENVIRONMENT"] = "test"
@@ -19,12 +31,25 @@ from app.models import Bus, District, Driver, Village
 DB_FILE = "test_bustracker.db"
 
 
+def _on_postgres() -> bool:
+    return _TEST_DATABASE_URL.startswith("postgres")
+
+
 async def _fresh_database():
     """Recreate an empty, seeded database for each test."""
     await engine.dispose()
-    if os.path.exists(DB_FILE):
-        os.remove(DB_FILE)
-    await init_db()
+    if _on_postgres():
+        from app.database import Base
+
+        import app.models  # noqa: F401  (register tables on Base.metadata)
+
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.drop_all)
+        await init_db()
+    else:
+        if os.path.exists(DB_FILE):
+            os.remove(DB_FILE)
+        await init_db()
 
     from app.seed.demo_data import seed
 
@@ -37,7 +62,7 @@ async def _database():
     await _fresh_database()
     yield
     await engine.dispose()
-    if os.path.exists(DB_FILE):
+    if not _on_postgres() and os.path.exists(DB_FILE):
         os.remove(DB_FILE)
 
 

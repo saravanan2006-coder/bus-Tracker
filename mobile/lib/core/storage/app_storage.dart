@@ -18,6 +18,7 @@ class AppStorage {
   static const _kDriverId = 'driver_id';
   static const _kLanguage = 'language';
   static const _kDeviceId = 'device_id';
+  static const _kDistrictId = 'district_id';
 
   // ------------------------------------------------------------------ //
   // Secure (tokens)
@@ -63,6 +64,21 @@ class AppStorage {
       await prefs.setString(_kDeviceId, id);
     }
     return id;
+  }
+
+  /// Persisted passenger district selection, restored on next launch.
+  static Future<int?> get districtId async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_kDistrictId);
+  }
+
+  static Future<void> setDistrictId(int? id) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (id == null) {
+      await prefs.remove(_kDistrictId);
+    } else {
+      await prefs.setInt(_kDistrictId, id);
+    }
   }
 }
 

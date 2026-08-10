@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/geo/detector.dart';
 import '../../../core/localization/localization_controller.dart';
 import '../../../core/models/models.dart';
 import '../../../shared_widgets/error_view.dart';
@@ -37,25 +36,17 @@ class _DistrictSelectScreenState extends State<DistrictSelectScreen> {
       _detecting = true;
       _detectMessage = null;
     });
-    final name = await DistrictDetector.detectDistrict();
-    if (!mounted) return;
     final controller = context.read<PublicController>();
+    final ok = await controller.autoDetectDistrict();
+    if (!mounted) return;
     setState(() {
       _detecting = false;
     });
-    if (name == null) {
+    if (ok) {
+      widget.onSelected?.call(controller.selectedDistrict!);
+    } else {
       setState(() => _detectMessage = loc.t('detectFailed'));
-      return;
     }
-    final match = controller.districts
-        .where((d) => d.name.toLowerCase() == name.toLowerCase())
-        .firstOrNull;
-    if (match == null) {
-      setState(() => _detectMessage = loc.t('detectFailed'));
-      return;
-    }
-    controller.selectDistrict(match);
-    widget.onSelected?.call(match);
   }
 
   @override

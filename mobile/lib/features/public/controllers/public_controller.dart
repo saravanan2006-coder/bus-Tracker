@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../core/geo/detector.dart';
 import '../../../core/models/models.dart';
 import '../../../core/repository/app_repository.dart';
 import '../../../core/storage/app_storage.dart';
@@ -15,7 +16,6 @@ class PublicController extends ChangeNotifier {
   List<Village> _villages = [];
   List<RouteWithBuses> _results = [];
   List<Favorite> _favorites = [];
-  List<Village> _favoriteDetails = [];
 
   District? _selectedDistrict;
   bool _loadingDistricts = false;
@@ -28,7 +28,6 @@ class PublicController extends ChangeNotifier {
   List<Village> get villages => _villages;
   List<RouteWithBuses> get results => _results;
   List<Favorite> get favorites => _favorites;
-  List<Village> get favoriteDetails => _favoriteDetails;
   District? get selectedDistrict => _selectedDistrict;
   bool get loadingDistricts => _loadingDistricts;
   bool get loadingVillages => _loadingVillages;
@@ -46,7 +45,29 @@ class PublicController extends ChangeNotifier {
     _villages = [];
     _results = [];
     notifyListeners();
+    AppStorage.setDistrictId(district.id);
     loadVillages();
+  }
+
+  /// Restores a previously persisted district selection, if any.
+  Future<bool> restoreDistrict() async {
+    final id = await AppStorage.districtId;
+    if (id == null) return false;
+    final match = _districts.where((d) => d.id == id).firstOrNull;
+    if (match == null) return false;
+    selectDistrict(match);
+    return true;
+  }
+
+  /// Detects the district from GPS and selects it. Returns false when
+  /// detection is unavailable or nothing matches.
+  Future<bool> autoDetectDistrict() async {
+    final name = await DistrictDetector.detectDistrict();
+    if (name == null) return false;
+    final match = DistrictDetector.bestMatch(name, _districts);
+    if (match == null) return false;
+    selectDistrict(match);
+    return true;
   }
 
   Future<void> loadDistricts() async {
@@ -107,23 +128,6 @@ class PublicController extends ChangeNotifier {
     try {
       final deviceId = await AppStorage.deviceId();
       _favorites = await _repo.favorites(deviceId);
-      final details = <Village>[];
-      final district = _selectedDistrict;
-      if (district != null) {
-        for (final fav in _favorites) {
-          try {
-            final list = await _repo.villages(district.id, limit: 500);
-            for (final v in list) {
-              if (v.id == fav.fromVillageId || v.id == fav.toVillageId) {
-                details.add(v);
-              }
-            }
-          } catch (_) {
-            // Favorites may reference villages from other districts.
-          }
-        }
-      }
-      _favoriteDetails = details;
     } catch (e) {
       _error = e.toString();
     } finally {

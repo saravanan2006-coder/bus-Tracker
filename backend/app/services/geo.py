@@ -125,6 +125,40 @@ def progress_to_distance(progress: float, total_m: float) -> float:
     return max(0.0, min(1.0, progress)) * total_m
 
 
+def point_at_fraction(polyline: Polyline, fraction: float) -> Point:
+    """Point on the polyline at a given fraction of its length (0.0 -> 1.0).
+
+    Walks along the great-circle distances between consecutive points, so the
+    interpolation is proportional to true metres travelled, not index order.
+    """
+    fraction = max(0.0, min(1.0, fraction))
+    if not polyline:
+        raise ValueError("empty polyline")
+    if len(polyline) == 1:
+        return polyline[0]
+    if fraction == 0.0:
+        return polyline[0]
+    if fraction == 1.0:
+        return polyline[-1]
+
+    cumulative = [0.0]
+    for i in range(len(polyline) - 1):
+        cumulative.append(cumulative[-1] + haversine(polyline[i], polyline[i + 1]))
+    total = cumulative[-1]
+    if total == 0.0:
+        return polyline[0]
+    target = fraction * total
+    for i in range(len(polyline) - 1):
+        if cumulative[i + 1] >= target:
+            seg_len = cumulative[i + 1] - cumulative[i]
+            t = 0.0 if seg_len <= 0 else (target - cumulative[i]) / seg_len
+            return (
+                polyline[i][0] + (polyline[i + 1][0] - polyline[i][0]) * t,
+                polyline[i][1] + (polyline[i + 1][1] - polyline[i][1]) * t,
+            )
+    return polyline[-1]
+
+
 def speed_between(a: Point, b: Point, seconds: float) -> float:
     """Speed in km/h between two points over `seconds`."""
     if seconds <= 0:

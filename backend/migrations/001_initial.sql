@@ -41,7 +41,11 @@ CREATE TABLE IF NOT EXISTS villages (
     source          VARCHAR(20) NOT NULL DEFAULT 'census',
     has_coords      BOOLEAN NOT NULL DEFAULT FALSE,
     needs_review    BOOLEAN NOT NULL DEFAULT FALSE,
-    UNIQUE (taluk_id, name_normalized)
+    -- Two villages in one taluk may share a name but have different official
+    -- census codes (e.g. Madurai intra-block duplicates); code is part of
+    -- identity so neither is silently merged away. Towns (code NULL) are
+    -- distinct from each other and from census rows.
+    UNIQUE (taluk_id, name_normalized, census_code)
 );
 
 CREATE INDEX IF NOT EXISTS ix_villages_name        ON villages (name);
@@ -50,7 +54,7 @@ CREATE INDEX IF NOT EXISTS ix_villages_taluk       ON villages (taluk_id);
 CREATE INDEX IF NOT EXISTS ix_villages_geom        ON villages USING GIST (geom);
 
 -- Village lookup by taluk + prefix search is the hottest public query.
-CREATE INDEX IF NOT EXISTS ix_villages_taluk_name  ON villages (taluk_id, name_normalized);
+CREATE INDEX IF NOT EXISTS ix_villages_taluk_name  ON villages (taluk_id, name_normalized, census_code);
 
 CREATE TABLE IF NOT EXISTS drivers (
     id          SERIAL PRIMARY KEY,

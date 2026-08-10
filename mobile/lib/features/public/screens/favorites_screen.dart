@@ -32,12 +32,8 @@ class FavoritesScreen extends StatelessWidget {
       itemCount: controller.favorites.length,
       itemBuilder: (context, index) {
         final favorite = controller.favorites[index];
-        final from = controller.favoriteDetails
-            .where((v) => v.id == favorite.fromVillageId)
-            .firstOrNull;
-        final to = controller.favoriteDetails
-            .where((v) => v.id == favorite.toVillageId)
-            .firstOrNull;
+        final from = favorite.fromVillage;
+        final to = favorite.toVillage;
         final fromName = _name(loc, from);
         final toName = _name(loc, to);
 
@@ -63,7 +59,7 @@ class FavoritesScreen extends StatelessWidget {
     );
   }
 
-  String _name(LocalizationController loc, Village? v) {
+  String _name(LocalizationController loc, VillageSummary? v) {
     if (v == null) return '?';
     return loc.language == 'ta' && v.nameTa != null ? v.nameTa! : v.name;
   }

@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../../core/geo.dart';
 import '../../../core/localization/localization_controller.dart';
 import '../../../core/models/models.dart';
+import '../../../core/push/push_service.dart';
 import '../../../core/repository/app_repository.dart';
 import '../../../core/storage/app_storage.dart';
 import '../../../core/websocket/bus_ws_client.dart';
@@ -236,11 +237,21 @@ class _BusMapScreenState extends State<BusMapScreen> {
       );
       return;
     }
+    final token = await PushService.obtainToken();
+    if (!mounted) return;
+    if (token == null) {
+      // Firebase not configured or permission denied: nothing to notify.
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(loc.t('alertUnavailable'))),
+      );
+      return;
+    }
     try {
       await repo.subscribeAlert(
         deviceId: await AppStorage.deviceId(),
         busId: bus.id,
         stopVillageId: nextStop.villageId,
+        fcmToken: token,
       );
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(

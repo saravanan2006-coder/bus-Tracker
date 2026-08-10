@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -5,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'core/api_client.dart';
 import 'core/localization/localization_controller.dart';
+import 'core/push/push_service.dart';
 import 'core/repository/app_repository.dart';
 import 'core/theme/app_theme.dart';
 import 'features/driver/controllers/auth_controller.dart';
@@ -12,9 +14,16 @@ import 'features/driver/controllers/driver_controller.dart';
 import 'features/public/controllers/public_controller.dart';
 import 'features/public/screens/public_home_screen.dart';
 
+/// Global messenger so pushes can surface a message on any screen.
+final GlobalKey<ScaffoldMessengerState> rootMessengerKey =
+    GlobalKey<ScaffoldMessengerState>();
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterForegroundTask.initCommunicationPort();
+  if (!kIsWeb) {
+    // Foreground-task isolate plumbing is Android-only (dart:isolate).
+    FlutterForegroundTask.initCommunicationPort();
+  }
   runApp(const BusTrackerApp());
 }
 
@@ -47,6 +56,7 @@ class BusTrackerApp extends StatelessWidget {
             title: 'BusTracker',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.light(),
+            scaffoldMessengerKey: rootMessengerKey,
             locale: Locale(language),
             supportedLocales: const [Locale('ta'), Locale('en')],
             localizationsDelegates: const [
@@ -77,7 +87,21 @@ class _RootGateState extends State<RootGate> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthController>().restoreSession();
+      // Surface push alerts as an in-app message. No-op when Firebase is
+      // not configured (local demo).
+      PushService.startListening(
+        onMessage: _showPushMessage,
+        onMessageOpened: _showPushMessage,
+      );
     });
+  }
+
+  void _showPushMessage(String? title, String? body) {
+    final messenger = rootMessengerKey.currentState;
+    if (messenger == null) return;
+    messenger.showSnackBar(
+      SnackBar(content: Text(body ?? title ?? '')),
+    );
   }
 
   @override

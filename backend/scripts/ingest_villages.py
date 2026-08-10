@@ -33,6 +33,43 @@ from app.services.village_pipeline import (
 logger = logging.getLogger(__name__)
 
 
+# Curated Tamil names for the 31 Census-2011 districts. Shown in the
+# passenger district picker when the app is in Tamil mode.
+DISTRICT_NAME_TA = {
+    "Kancheepuram": "காஞ்சிபுரம்",
+    "Tiruvallur": "திருவள்ளூர்",
+    "Cuddalore": "கடலூர்",
+    "Villupuram": "விழுப்புரம்",
+    "Vellore": "வேலூர்",
+    "Tiruvannamalai": "திருவண்ணாமலை",
+    "Salem": "சேலம்",
+    "Namakkal": "நாமக்கல்",
+    "Dharmapuri": "தருமபுரி",
+    "Erode": "ஈரோடு",
+    "Coimbatore": "கோயம்புத்தூர்",
+    "The Nilgiris": "நீலகிரி",
+    "Thanjavur": "தஞ்சாவூர்",
+    "Nagapattinam": "நாகப்பட்டினம்",
+    "Tiruvarur": "திருவாரூர்",
+    "Tiruchirappalli": "திருச்சிராப்பள்ளி",
+    "Karur": "கரூர்",
+    "Perambalur": "பெரம்பலூர்",
+    "Pudukkottai": "புதுக்கோட்டை",
+    "Madurai": "மதுரை",
+    "Theni": "தேனி",
+    "Dindigul": "திண்டுக்கல்",
+    "Ramanathapuram": "இராமநாதபுரம்",
+    "Virudhunagar": "விருதுநகர்",
+    "Sivagangai": "சிவகங்கை",
+    "Tirunelveli": "திருநெல்வேலி",
+    "Thoothukkudi": "தூத்துக்குடி",
+    "Kanniyakumari": "கன்னியாகுமரி",
+    "Krishnagiri": "கிருஷ்ணகிரி",
+    "Ariyalur": "அரியலூர்",
+    "Tiruppur": "திருப்பூர்",
+}
+
+
 async def upsert(
     db: AsyncSession,
     district_name: str,
@@ -51,9 +88,13 @@ async def upsert(
 
     district = await db.scalar(select(District).where(District.name == district_name))
     if district is None:
-        district = District(name=district_name)
+        district = District(
+            name=district_name, name_ta=DISTRICT_NAME_TA.get(district_name)
+        )
         db.add(district)
         await db.flush()
+    elif not district.name_ta:
+        district.name_ta = DISTRICT_NAME_TA.get(district_name)
 
     taluk_cache: dict[str, Taluk] = {}
     created = 0
@@ -72,12 +113,24 @@ async def upsert(
             taluk_cache[taluk_name] = taluk
         taluk = taluk_cache[taluk_name]
 
-        village = await db.scalar(
-            select(Village).where(
-                Village.taluk_id == taluk.id,
-                Village.name_normalized == normalize_name(rec.name),
+        # The official census code is the stable identity: two villages in one
+        # taluk can share a name but carry different codes, and looking them up
+        # by name alone would silently merge a listed village. Towns (no code)
+        # fall back to the name match.
+        if rec.census_code:
+            village = await db.scalar(
+                select(Village).where(
+                    Village.taluk_id == taluk.id,
+                    Village.census_code == rec.census_code,
+                )
             )
-        )
+        else:
+            village = await db.scalar(
+                select(Village).where(
+                    Village.taluk_id == taluk.id,
+                    Village.name_normalized == normalize_name(rec.name),
+                )
+            )
         if village is None:
             village = Village(
                 district_id=district.id,
@@ -99,8 +152,11 @@ async def upsert(
             if rec.lat is not None and rec.lng is not None:
                 village.lat, village.lng = rec.lat, rec.lng
                 village.has_coords = True
+                village.needs_review = False
             if rec.name_ta:
                 village.name_ta = rec.name_ta
+            if rec.place_type and rec.place_type != "village":
+                village.place_type = rec.place_type
     await db.commit()
     logger.info("Loaded %s new villages for %s", created, district_name)
     return {"loaded": True, "created": created, "reconciliation": report.to_dict()}

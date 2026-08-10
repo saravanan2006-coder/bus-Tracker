@@ -46,7 +46,7 @@ async def list_districts(db: DbSession) -> list[dict]:
             select(
                 District,
                 func.count(func.distinct(Taluk.id)).label("taluks"),
-                func.count(Village.id).label("villages"),
+                func.count(func.distinct(Village.id)).label("villages"),
             )
             .outerjoin(Taluk, Taluk.district_id == District.id)
             .outerjoin(Village, Village.district_id == District.id)
@@ -153,7 +153,7 @@ async def search_buses(db: DbSession, q: str) -> dict:
                 and_(
                     Bus.is_active.is_(True),
                     or_(
-                        func.lower(Bus.bus_number) == term,
+                        func.lower(Bus.bus_number).like(f"%{term}%"),
                         func.lower(Bus.bus_name).like(f"%{term}%"),
                     ),
                 )
@@ -241,6 +241,13 @@ async def list_favorites(db: DbSession, device_id: str) -> dict:
             select(Favorite).where(Favorite.device_id == device_id)
         )
     ).scalars().all()
+    from_ids = {f.from_village_id for f in favs} | {f.to_village_id for f in favs}
+    villages = {
+        v.id: search_service._village_summary(v)
+        for v in (
+            await db.execute(select(Village).where(Village.id.in_(from_ids)))
+        ).scalars()
+    }
     return {
         "ok": True,
         "data": [
@@ -248,6 +255,8 @@ async def list_favorites(db: DbSession, device_id: str) -> dict:
                 "id": f.id,
                 "from_village_id": f.from_village_id,
                 "to_village_id": f.to_village_id,
+                "from_village": villages.get(f.from_village_id),
+                "to_village": villages.get(f.to_village_id),
             }
             for f in favs
         ],

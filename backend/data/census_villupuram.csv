@@ -1,633 +1,92 @@
-village,taluk,district,census_code,lat,lng,name_ta
-Appampattu,Gingee,Villupuram,,12.21340,79.41695,
-Gingee,Gingee,Villupuram,,12.25442,79.41578,செஞ்சி
-Manthangal,Gingee,Villupuram,,12.38072,79.45936,மாந்தாங்கல்
-Nallalam,Gingee,Villupuram,,12.58342,79.53333,
-Ottampattu,Gingee,Villupuram,,12.15424,79.42855,
-Pallapattu,Gingee,Villupuram,,12.17576,79.42728,
-Vedal,Gingee,Villupuram,,12.37544,79.47231,வேடல்
-Allikondapattu,Kandachipuram,Villupuram,,12.09081,79.07933,அல்லிகொண்டாப்பட்டு
-Andampallam,Kandachipuram,Villupuram,,12.08901,79.16680,அண்டம்பள்ளம்
-Andiyur,Kandachipuram,Villupuram,,12.10425,78.60542,
-Arakandanallur,Kandachipuram,Villupuram,,11.97457,79.22252,அரகண்டநல்லூர்
-Ayamapudur,Kandachipuram,Villupuram,,12.10851,79.05563,அயமாபுதூர்
-Ayandur,Kandachipuram,Villupuram,,11.96588,79.33975,ஆயந்தூர்
-Ayil Reddipalayam,Kandachipuram,Villupuram,,12.10927,79.08668,ஆயில் ரெட்டிபாளையம்
-Bairanayakkampatty,Kandachipuram,Villupuram,,12.03869,78.64355,
-Devanur,Kandachipuram,Villupuram,,11.97874,79.21106,
-Gengavaram,Kandachipuram,Villupuram,,12.15001,79.33108,கெங்கவரம்
-Gnanananda Tapovanam,Kandachipuram,Villupuram,,11.97875,79.18356,
-Gundiyapattu,Kandachipuram,Villupuram,,11.84077,78.67845,குண்டியாபட்டு
-Kamaraj Nagar,Kandachipuram,Villupuram,,11.63079,78.62366,
-Kandachipuram,Kandachipuram,Villupuram,,12.03542,79.29896,கண்டாச்சிபுரம்
-Karumandurai,Kandachipuram,Villupuram,,11.82627,78.62740,கருமந்துறை
-Kattampundi,Kandachipuram,Villupuram,,12.12152,79.07943,காட்டாம்பூண்டி
-Kedar,Kandachipuram,Villupuram,,12.00984,79.40625,
-Keelasinipakkam,Kandachipuram,Villupuram,,12.18187,79.01120,கீழ்சீனிபாக்கம்
-Konalur,Kandachipuram,Villupuram,,12.16981,79.15428,கோணலூர்
-Kottappatti,Kandachipuram,Villupuram,,11.98274,78.67084,
-Kuchipalayam,Kandachipuram,Villupuram,,11.97994,79.18106,
-Kuladeepamangalam,Kandachipuram,Villupuram,,11.97861,79.18588,
-Madampoondi,Kandachipuram,Villupuram,,11.93583,79.08009,
-Manalurpettai,Kandachipuram,Villupuram,,12.00796,79.08763,மணலுர்பேட்டை
-Manampoondi,Kandachipuram,Villupuram,,11.97709,79.20296,மணம்பூண்டி
-Mugaiyur,Kandachipuram,Villupuram,,11.97603,79.30959,முகையூர்
-Muttal,Kandachipuram,Villupuram,,11.63979,78.64602,
-Naripalli,Kandachipuram,Villupuram,,12.05082,78.67679,
-Nariyapattu,Kandachipuram,Villupuram,,12.10901,79.06479,நரியாப்பட்டு
-Navalur,Kandachipuram,Villupuram,,11.84303,78.68096,நாவலுர்
-Pandalam,Kandachipuram,Villupuram,,11.89567,78.92807,பாண்டலம்
-Parayampattu,Kandachipuram,Villupuram,,12.12077,79.05718,பறையம்பட்டு
-Pavupattu,Kandachipuram,Villupuram,,12.12028,79.06748,பாவுப்பட்டு
-Rajanthangal,Kandachipuram,Villupuram,,12.14829,79.18558,இராஜந்தாங்கல்
-Sakkaratamadai,Kandachipuram,Villupuram,,12.10289,79.05780,சக்கரட்டமடை
-Sankarapuram,Kandachipuram,Villupuram,,11.88738,78.91661,சங்கராபுரம்
-Su. Pappambadi,Kandachipuram,Villupuram,,12.11384,79.09757,சு. பாப்பம்பாடி
-Sukkam Palayam,Kandachipuram,Villupuram,,12.11755,79.08623,சுக்காம் பாளையம்
-Talayampallam,Kandachipuram,Villupuram,,12.10524,79.06696,தலையாம்பள்ளம்
-Tandarai,Kandachipuram,Villupuram,,12.12037,79.14997,தண்டரை
-Thachampattu,Kandachipuram,Villupuram,,12.09468,79.08374,தச்சம்பட்டு
-Thandrampet,Kandachipuram,Villupuram,,12.15346,78.94690,தண்டாரம்பட்டு
-Thanipadi,Kandachipuram,Villupuram,,12.10601,78.83326,
-Thekambattu,Kandachipuram,Villupuram,,11.83961,78.67014,தேக்கம்பட்டு
-Thondanandal,Kandachipuram,Villupuram,,11.85469,79.00071,
-Tirukkovilur,Kandachipuram,Villupuram,,11.96929,79.20518,திருக்கோவிலூர்
-Tirukoilur,Kandachipuram,Villupuram,,11.95830,79.20330,
-Vadakkamandal,Kandachipuram,Villupuram,,11.77439,78.86513,வடக்கனந்தல்
-Valagapattu,Kandachipuram,Villupuram,,11.84517,78.67783,வலகாபட்டு
-Vanapuram,Kandachipuram,Villupuram,,12.10490,79.01848,வானபுரம்
-Veerangipuram,Kandachipuram,Villupuram,,12.03093,79.35148,வீராங்கிப்புரம்
-Veerapandi,Kandachipuram,Villupuram,,12.04777,79.21499,வீரபாண்டி
-Veraiyur,Kandachipuram,Villupuram,,12.09198,79.13127,வெறையூர்
-Vettavalam,Kandachipuram,Villupuram,,12.11025,79.24540,வேட்டவலம்
-Achcharapākkam,Marakkanam,Villupuram,,12.59865,80.09619,
-Alambarai,Marakkanam,Villupuram,,12.26824,80.01048,
-Angamampattu,Marakkanam,Villupuram,,12.52551,80.09670,
-Annāmalaiputheri,Marakkanam,Villupuram,,12.51443,80.07982,
-Anoor,Marakkanam,Villupuram,,12.58047,79.97283,ஆனூர்
-Anumandai,Marakkanam,Villupuram,,12.13038,79.91122,அனுமந்தை
-Anumanthai Kuppam,Marakkanam,Villupuram,,12.12091,79.91900,
-Bommarāyapuram,Marakkanam,Villupuram,,12.50387,80.07926,
-Chettinagar,Marakkanam,Villupuram,,12.10203,79.90536,
-Cheyur,Marakkanam,Villupuram,,12.35213,80.00375,செய்யூர்
-Chittamur,Marakkanam,Villupuram,,12.40977,79.89118,சித்தாமூர்
-Chunampet,Marakkanam,Villupuram,,12.25833,79.90072,சூனாம்பேடு
-Edaikalindu,Marakkanam,Villupuram,,12.27147,80.01561,
-Edaiyur,Marakkanam,Villupuram,,12.59015,80.00801,எடையூர்
-Ekkiar Kuppam,Marakkanam,Villupuram,,12.18367,79.96003,
-Elumichampattu,Marakkanam,Villupuram,,12.57145,79.97630,எலுமிச்சம்பட்டு
-Ganapathichettikulam,Marakkanam,Villupuram,,12.04080,79.86905,கணபதிசெட்டிகுளம்
-Gandhi Nagar,Marakkanam,Villupuram,,12.49907,79.89769,
-Kadapakkam,Marakkanam,Villupuram,,12.28184,79.99046,கடப்பாக்கம்
-Kadappakkam,Marakkanam,Villupuram,,12.27486,80.00916,
-Kalapet,Marakkanam,Villupuram,,12.03084,79.86484,காலாப்பட்டு
-Karunguzhi,Marakkanam,Villupuram,,12.53439,79.90288,கருங்குழி
-Keelpettai,Marakkanam,Villupuram,,12.13561,79.92878,
-Kilputhupattu,Marakkanam,Villupuram,,12.05609,79.87456,கீழ்புத்துப்பட்டு
-Kodur,Marakkanam,Villupuram,,12.41414,80.07609,கொடூர்
-Koonimedu,Marakkanam,Villupuram,,12.08858,79.89171,கூனிமேடு
-Korappattu,Marakkanam,Villupuram,,12.58141,79.98946,கோரப்பட்டு
-Lathur,Marakkanam,Villupuram,,12.47882,80.01131,
-Maduranthakam,Marakkanam,Villupuram,,12.50818,79.88823,மதுராந்தகம்
-Mambakkam,Marakkanam,Villupuram,,12.55798,79.98604,மாம்பாக்கம்
-Mangalam,Marakkanam,Villupuram,,12.59831,80.06877,
-Marakkanam,Marakkanam,Villupuram,,12.22634,79.98948,
-Melmavurathur,Marakkanam,Villupuram,,12.43637,79.83331,மேல்மருவத்தூர்
-Mudailar Kuppam,Marakkanam,Villupuram,,12.06338,79.88230,முதலியார்குப்பம்
-Mullikulathur,Marakkanam,Villupuram,,12.57672,80.09572,
-Murukkeri,Marakkanam,Villupuram,,12.20326,79.84078,முருக்கேரி
-Muttigainallānkuppam,Marakkanam,Villupuram,,12.59389,80.05483,
-Nallāttūr,Marakkanam,Villupuram,,12.50695,80.09540,
-Nerumbur,Marakkanam,Villupuram,,12.52187,80.06705,
-Nethapakkam,Marakkanam,Villupuram,,12.45011,79.88106,நேத்தப்பாக்கம்
-Onampakkam,Marakkanam,Villupuram,,12.38414,79.96507,ஓணம்பாக்கம்
-Pachinamedu,Marakkanam,Villupuram,,12.09635,79.89946,
-Padalam,Marakkanam,Villupuram,,12.59353,79.94840,படாளம்
-Panankāttuchcheri,Marakkanam,Villupuram,,12.50127,80.09078,
-Pavunjur,Marakkanam,Villupuram,,12.44630,80.00510,பவுஞ்சூர்
-Perambākkam,Marakkanam,Villupuram,,12.52838,80.09977,
-Polambakkam,Marakkanam,Villupuram,,12.42720,79.88255,
-Salur R.F.,Marakkanam,Villupuram,,12.58704,79.99379,சாலூர் ஆர்.எஃப்
-Soolayuthamman,Marakkanam,Villupuram,,12.07557,79.88959,
-Thondamanallur,Marakkanam,Villupuram,,12.47330,80.03701,
-Vallipuram,Marakkanam,Villupuram,,12.55304,79.99045,வள்ளிபுரம்
-Vedanthangal,Marakkanam,Villupuram,,12.56085,79.86184,வேடந்தாங்கல்
-Veerakuppam,Marakkanam,Villupuram,,12.59191,80.00107,வீரகுப்பம்
-Vennangupattu,Marakkanam,Villupuram,,12.24833,79.97547,வெண்ணங்குபட்டு
-Adivāram,Melmalaiyanur,Villupuram,,12.28939,78.69279,
-Agaram,Melmalaiyanur,Villupuram,,12.48280,78.61669,
-Alampoondi,Melmalaiyanur,Villupuram,,12.24770,79.33782,
-Alanjanūr,Melmalaiyanur,Villupuram,,12.58238,78.88776,
-Ambatankollai,Melmalaiyanur,Villupuram,,12.54585,78.94780,
-Anandavadi,Melmalaiyanur,Villupuram,,12.25641,78.65807,
-Andiyappanūr,Melmalaiyanur,Villupuram,,12.53425,78.70234,
-Anganādavalasai,Melmalaiyanur,Villupuram,,12.40173,78.61795,
-Aramalampatti,Melmalaiyanur,Villupuram,,12.39714,78.69030,
-Attanāyūr,Melmalaiyanur,Villupuram,,12.58569,78.63009,
-Attikuppam,Melmalaiyanur,Villupuram,,12.45518,78.61868,
-Attipattu,Melmalaiyanur,Villupuram,,12.56855,78.89025,
-Attiyanūr,Melmalaiyanur,Villupuram,,12.52847,78.89621,
-Avalurpet,Melmalaiyanur,Villupuram,,12.33714,79.24105,அவலூர்பேட்டை
-Balanakuppam,Melmalaiyanur,Villupuram,,12.44182,78.63215,
-Banganūr,Melmalaiyanur,Villupuram,,12.59896,78.99876,
-Batappanattam,Melmalaiyanur,Villupuram,,12.55762,78.74129,
-Bhīmakulam,Melmalaiyanur,Villupuram,,12.58943,78.81606,
-Bommaikuppam,Melmalaiyanur,Villupuram,,12.46092,78.62277,
-Bothanur,Melmalaiyanur,Villupuram,,12.51711,78.63488,
-Bālināyakkanūr,Melmalaiyanur,Villupuram,,12.51529,78.64559,
-Chavudekuppam,Melmalaiyanur,Villupuram,,12.46063,78.60018,
-Chengam,Melmalaiyanur,Villupuram,,12.30759,78.79314,செங்கம்
-Chetpet,Melmalaiyanur,Villupuram,,12.46624,79.35073,சேத்துப்பட்டு
-Chinnagirivalasai,Melmalaiyanur,Villupuram,,12.56078,78.81066,
-Chinnasamudram,Melmalaiyanur,Villupuram,,12.30787,78.74741,
-Chinnavattanūr,Melmalaiyanur,Villupuram,,12.47171,78.70063,
-Chinnavavvākuttai,Melmalaiyanur,Villupuram,,12.55331,78.87214,
-Chintalūr,Melmalaiyanur,Villupuram,,12.57643,78.88222,
-Dombarātti,Melmalaiyanur,Villupuram,,12.55882,78.92132,
-Eraiur,Melmalaiyanur,Villupuram,,12.27709,78.89783,
-Erumayanur,Melmalaiyanur,Villupuram,,12.54933,78.93012,
-Gundalattur,Melmalaiyanur,Villupuram,,12.59025,78.91681,
-Gundrendi,Melmalaiyanur,Villupuram,,12.57596,78.87148,
-Irmayanūr,Melmalaiyanur,Villupuram,,12.50978,78.89583,
-Irunapattu,Melmalaiyanur,Villupuram,,12.52634,78.67594,
-Jamanamarathūr,Melmalaiyanur,Villupuram,,12.59645,78.88903,சமுனாமரத்தூர்
-Jambadi,Melmalaiyanur,Villupuram,,12.57970,78.92067,
-Jammana Pudūr,Melmalaiyanur,Villupuram,,12.42446,78.62160,
-Jolagoundanūru,Melmalaiyanur,Villupuram,,12.51594,78.67661,
-Kadaladi,Melmalaiyanur,Villupuram,,12.40443,78.96742,கடலாடி
-Kadirampatti,Melmalaiyanur,Villupuram,,12.47484,78.61237,
-Kalasapakkam,Melmalaiyanur,Villupuram,,12.43454,79.09830,கலசப்பாக்கம்
-Kalathūr,Melmalaiyanur,Villupuram,,12.49217,78.61477,
-Kalgudda,Melmalaiyanur,Villupuram,,12.50781,78.64284,
-Kallattūr,Melmalaiyanur,Villupuram,,12.59557,78.99790,
-Kambugudi,Melmalaiyanur,Villupuram,,12.48548,78.74494,
-Kandāgalanūr,Melmalaiyanur,Villupuram,,12.46643,78.69698,
-Kangarampālaiyam,Melmalaiyanur,Villupuram,,12.48851,78.63395,
-Kaniyūr,Melmalaiyanur,Villupuram,,12.57406,78.64810,
-Kanji,Melmalaiyanur,Villupuram,,12.38397,78.96170,காஞ்சி
-Kannalamandai,Melmalaiyanur,Villupuram,,12.54242,78.85252,
-Kavalanūr,Melmalaiyanur,Villupuram,,12.58152,78.81712,
-Kilamarathūr,Melmalaiyanur,Villupuram,,12.58347,78.90977,
-Kilanur,Melmalaiyanur,Villupuram,,12.42803,78.68644,
-Kilkaniyūr,Melmalaiyanur,Villupuram,,12.57486,78.63404,
-Kilpennathur,Melmalaiyanur,Villupuram,,12.24916,79.22233,கீழ் பெண்ணாத்தூர்
-Kilsilambadi,Melmalaiyanur,Villupuram,,12.52430,78.84512,
-Kilūr,Melmalaiyanur,Villupuram,,12.36868,78.69636,
-Kodagumalai,Melmalaiyanur,Villupuram,,12.50287,78.68829,
-Koilanūr,Melmalaiyanur,Villupuram,,12.57157,78.92879,
-Kombai,Melmalaiyanur,Villupuram,,12.38165,78.70565,
-Kottaiyūr,Melmalaiyanur,Villupuram,,12.59392,78.63705,
-Kottakulam,Melmalaiyanur,Villupuram,,12.27885,78.85635,கொட்டகுளம்
-Kottavur,Melmalaiyanur,Villupuram,,12.38011,78.76099,
-Kottānūr,Melmalaiyanur,Villupuram,,12.42627,78.70691,
-Kottūr,Melmalaiyanur,Villupuram,,12.56985,78.62211,
-Kovilkollūr,Melmalaiyanur,Villupuram,,12.50358,78.80347,
-Kovilūr,Melmalaiyanur,Villupuram,,12.55373,78.91681,
-Kularapādi,Melmalaiyanur,Villupuram,,12.39534,78.62297,
-Kundiredddiyūr,Melmalaiyanur,Villupuram,,12.54920,78.69846,
-Kuppanattam,Melmalaiyanur,Villupuram,,12.38828,78.76724,குப்பநத்தம்
-Kurianūr,Melmalaiyanur,Villupuram,,12.55674,78.88578,
-Kurichchilāppattu,Melmalaiyanur,Villupuram,,12.50988,78.65412,
-Kurumberi,Melmalaiyanur,Villupuram,,12.38549,78.61091,
-Kurumpatti,Melmalaiyanur,Villupuram,,12.54901,78.71856,
-Kustampalli,Melmalaiyanur,Villupuram,,12.44173,78.61241,
-Kutathūr,Melmalaiyanur,Villupuram,,12.52733,78.85124,
-Kuttanari,Melmalaiyanur,Villupuram,,12.51296,78.86029,
-Kuttāgarai,Melmalaiyanur,Villupuram,,12.58979,78.97827,
-Kāvapattarai,Melmalaiyanur,Villupuram,,12.49692,78.62898,
-Kāyampattu,Melmalaiyanur,Villupuram,,12.29602,78.74558,
-Kūdappattu,Melmalaiyanur,Villupuram,,12.49132,78.63984,
-Kūduvanepatti,Melmalaiyanur,Villupuram,,12.47479,78.63926,
-Lalapet,Melmalaiyanur,Villupuram,,12.53584,78.71391,
-Malaitirupattūr,Melmalaiyanur,Villupuram,,12.32617,78.68906,
-Malamarathūr,Melmalaiyanur,Villupuram,,12.57936,78.90505,
-Malayāndapattu,Melmalaiyanur,Villupuram,,12.32055,78.67893,
-Mamarathūr,Melmalaiyanur,Villupuram,,12.54644,78.91527,
-Mangalam,Melmalaiyanur,Villupuram,,12.32894,79.17772,மங்கலம்
-Marimānikuppam,Melmalaiyanur,Villupuram,,12.56679,78.70794,
-Mattarappalli,Melmalaiyanur,Villupuram,,12.42017,78.60602,
-Mattukarunūr,Melmalaiyanur,Villupuram,,12.55197,78.90520,
-Melchengam,Melmalaiyanur,Villupuram,,12.27726,78.72498,
-Melmalaiyanur,Melmalaiyanur,Villupuram,,12.34104,79.32645,மேல்மலையனூர்
-Melpadur,Melmalaiyanur,Villupuram,,12.33725,79.00349,மேல்படூர்
-Melpattu,Melmalaiyanur,Villupuram,,12.35627,78.66220,
-Melsilambadi,Melmalaiyanur,Villupuram,,12.51153,78.84097,
-Melūr,Melmalaiyanur,Villupuram,,12.38014,78.69078,
-Merkathiyanūr,Melmalaiyanur,Villupuram,,12.41667,78.62065,
-Modaiyur,Melmalaiyanur,Villupuram,,12.50603,79.22429,மொடையூர்
-Molainūr,Melmalaiyanur,Villupuram,,12.51062,78.86403,
-Molalai,Melmalaiyanur,Villupuram,,12.39936,78.68125,
-Mottūr,Melmalaiyanur,Villupuram,,12.56039,78.70910,
-Mullipatti,Melmalaiyanur,Villupuram,,12.53439,78.91050,
-Mādappalli,Melmalaiyanur,Villupuram,,12.49061,78.60098,
-Māmbakkam,Melmalaiyanur,Villupuram,,12.37760,78.64378,
-Mūlandiyūr,Melmalaiyanur,Villupuram,,12.55410,78.71138,
-Nadukuppam,Melmalaiyanur,Villupuram,,12.41277,78.72253,
-Nadūr,Melmalaiyanur,Villupuram,,12.47890,78.73189,
-Nallaapttu,Melmalaiyanur,Villupuram,,12.55264,78.89111,
-Narthamarathūr,Melmalaiyanur,Villupuram,,12.55142,78.86407,
-Nayampadi,Melmalaiyanur,Villupuram,,12.22843,79.32724,
-Nelanūr,Melmalaiyanur,Villupuram,,12.55984,78.64007,
-Nellimandai,Melmalaiyanur,Villupuram,,12.59538,79.00951,
-Nellīpattu,Melmalaiyanur,Villupuram,,12.32130,78.64520,
-Nelvasal,Melmalaiyanur,Villupuram,,12.33086,78.66228,
-Nochchimalai,Melmalaiyanur,Villupuram,,12.51571,78.88008,
-Nāchchiyārkuppam,Melmalaiyanur,Villupuram,,12.56692,78.71588,
-Nārāyanpuram,Melmalaiyanur,Villupuram,,12.53456,78.65932,
-Nāyakkanūr,Melmalaiyanur,Villupuram,,12.56998,78.80607,
-Omaikuppam,Melmalaiyanur,Villupuram,,12.57729,78.71082,
-Pachchal,Melmalaiyanur,Villupuram,,12.26909,78.93828,பாச்சல்
-Padapanjamarathūr,Melmalaiyanur,Villupuram,,12.50732,78.83099,
-Paderi,Melmalaiyanur,Villupuram,,12.50375,78.87724,
-Paduvanūr,Melmalaiyanur,Villupuram,,12.57073,78.65438,
-Pakkainudiyanūr,Melmalaiyanur,Villupuram,,12.59526,78.88587,
-Pakkiripālaiyam,Melmalaiyanur,Villupuram,,12.30218,78.72794,
-Palamarathūr,Melmalaiyanur,Villupuram,,12.55779,78.86197,
-Pallattur,Melmalaiyanur,Villupuram,,12.50836,78.66928,
-Pappanur,Melmalaiyanur,Villupuram,,12.52637,78.66685,
-Paramanandal,Melmalaiyanur,Villupuram,,12.35853,78.76622,பரமனந்தல்
-Paranellimarathūr,Melmalaiyanur,Villupuram,,12.57446,78.91037,
-Patrakadu,Melmalaiyanur,Villupuram,,12.55916,78.97695,
-Perampalli,Melmalaiyanur,Villupuram,,12.45715,78.69425,
-Peramāpattu,Melmalaiyanur,Villupuram,,12.53050,78.64872,
-Periyamalai,Melmalaiyanur,Villupuram,,12.58656,78.94183,
-Periyasamudram,Melmalaiyanur,Villupuram,,12.50408,78.63147,
-Perumbakkam,Melmalaiyanur,Villupuram,,12.22025,78.99453,
-Perunkattūr,Melmalaiyanur,Villupuram,,12.56600,78.91140,
-Pilakkanūr,Melmalaiyanur,Villupuram,,12.50169,78.82849,
-Polur,Melmalaiyanur,Villupuram,,12.51283,79.12652,போளூர்
-Pudūr,Melmalaiyanur,Villupuram,,12.52055,78.71696,
-Pulichakuttai,Melmalaiyanur,Villupuram,,12.52826,78.88651,
-Puliyūr,Melmalaiyanur,Villupuram,,12.35400,78.67833,
-Puluganvalasa,Melmalaiyanur,Villupuram,,12.37817,78.60134,
-Puttur,Melmalaiyanur,Villupuram,,12.50699,78.60222,
-Pālaiyapālaiyam,Melmalaiyanur,Villupuram,,12.46954,78.74133,
-Pūngulam,Melmalaiyanur,Villupuram,,12.57274,78.75292,
-Rajāpālaiyam,Melmalaiyanur,Villupuram,,12.48178,78.64463,
-Rangasamudram,Melmalaiyanur,Villupuram,,12.46469,78.72441,
-Rayaneri,Melmalaiyanur,Villupuram,,12.56449,78.65323,
-Reddivalasai,Melmalaiyanur,Villupuram,,12.56802,78.71989,
-Reddiyūr,Melmalaiyanur,Villupuram,,12.59385,78.80937,
-Rājapālaiyam,Melmalaiyanur,Villupuram,,12.53802,78.69760,
-Saramarathūr,Melmalaiyanur,Villupuram,,12.57999,78.91492,
-Sathanur,Melmalaiyanur,Villupuram,,12.20474,78.88920,சாத்தனூர்
-Savanampatti,Melmalaiyanur,Villupuram,,12.50157,78.60259,
-Selandampalli,Melmalaiyanur,Villupuram,,12.48456,78.60896,
-Sembārai,Melmalaiyanur,Villupuram,,12.33438,78.65421,
-Serkānūr,Melmalaiyanur,Villupuram,,12.45682,78.68779,
-Setteri,Melmalaiyanur,Villupuram,,12.40699,78.60263,
-Singarapettai,Melmalaiyanur,Villupuram,,12.25396,78.61721,சிங்காரப்பேட்டை
-Sirangampatti,Melmalaiyanur,Villupuram,,12.46817,78.60044,
-Sittūr,Melmalaiyanur,Villupuram,,12.39278,78.68588,
-Somālapuram,Melmalaiyanur,Villupuram,,12.50903,78.60898,
-Sorakavundanūr,Melmalaiyanur,Villupuram,,12.51707,78.60181,
-Tanjankollai,Melmalaiyanur,Villupuram,,12.55796,78.90913,
-Tatavalli,Melmalaiyanur,Villupuram,,12.50341,78.61224,
-Tayalūr,Melmalaiyanur,Villupuram,,12.57947,78.66310,
-Tekkamarathūr,Melmalaiyanur,Villupuram,,12.59423,78.91153,
-Tettūr,Melmalaiyanur,Villupuram,,12.56277,78.87317,
-Thagarakuppam,Melmalaiyanur,Villupuram,,12.45212,78.72983,
-Thammanūr,Melmalaiyanur,Villupuram,,12.43253,78.60651,
-Timirimarathūr,Melmalaiyanur,Villupuram,,12.56453,78.86858,
-Timmanāmattūr,Melmalaiyanur,Villupuram,,12.44722,78.60735,
-Timmarāyavalasai,Melmalaiyanur,Villupuram,,12.55467,78.72432,
-Tippasamūdram,Melmalaiyanur,Villupuram,,12.45833,78.60735,
-Tiruvannamalai,Melmalaiyanur,Villupuram,,12.23432,79.07620,திருவண்ணாமலை
-Tumbikallai,Melmalaiyanur,Villupuram,,12.59909,78.92724,
-Tādanvalasai,Melmalaiyanur,Villupuram,,12.46859,78.62756,
-Tāndāpattu,Melmalaiyanur,Villupuram,,12.33623,78.74691,
-Vadapuludiyūr,Melmalaiyanur,Villupuram,,12.55096,78.85463,
-Valakad,Melmalaiyanur,Villupuram,,12.51984,78.86973,
-Valasai,Melmalaiyanur,Villupuram,,12.34461,78.73146,
-Valathalampatti,Melmalaiyanur,Villupuram,,12.41034,78.70996,
-Vandikurianūr,Melmalaiyanur,Villupuram,,12.55241,78.87724,
-Vannankuttai,Melmalaiyanur,Villupuram,,12.52306,78.82763,
-Varaikuttai,Melmalaiyanur,Villupuram,,12.58019,78.61802,
-Vasantapuram,Melmalaiyanur,Villupuram,,12.52825,78.78573,
-Vavakallūr,Melmalaiyanur,Villupuram,,12.56638,78.87175,
-Velichanūr,Melmalaiyanur,Villupuram,,12.53437,78.84330,
-Velānkuppam,Melmalaiyanur,Villupuram,,12.55645,78.71440,
-Vīrarāghavalasai,Melmalaiyanur,Villupuram,,12.58683,78.80391,
-Yelagiri,Melmalaiyanur,Villupuram,,12.58932,78.63236,ஏலகிரி
-Yertikuppam,Melmalaiyanur,Villupuram,,12.53513,78.65348,
-AD Colony,Thiruvennainallur,Villupuram,,11.59717,78.63945,
-Aduthurai,Thiruvennainallur,Villupuram,,11.40034,79.05461,
-Agaram,Thiruvennainallur,Villupuram,,11.41207,78.94035,
-Ambedkar Nagar,Thiruvennainallur,Villupuram,,11.52834,78.61703,
-Ambethkar Nagar,Thiruvennainallur,Villupuram,,11.40750,78.73352,
-Ammampalayam,Thiruvennainallur,Villupuram,,11.59927,78.63806,
-Amman Nagar,Thiruvennainallur,Villupuram,,11.59181,78.63525,
-Anaiayampatty pudur,Thiruvennainallur,Villupuram,,11.49394,78.68417,
-Anaikalmedu,Thiruvennainallur,Villupuram,,11.58473,78.62497,
-Anaiyampatty,Thiruvennainallur,Villupuram,,11.49655,78.65469,
-Anathur,Thiruvennainallur,Villupuram,,11.81552,79.47202,ஆனத்தூர்
-Anna Nagar,Thiruvennainallur,Villupuram,,11.58450,78.62207,
-Annai Sathya Nagar,Thiruvennainallur,Villupuram,,11.56723,78.62276,
-Annanagar,Thiruvennainallur,Villupuram,,11.45869,78.60720,
-Annapuram,Thiruvennainallur,Villupuram,,11.50056,78.68039,
-Aragalur,Thiruvennainallur,Villupuram,,11.56123,78.78942,ஆறகளூர்
-Arasur,Thiruvennainallur,Villupuram,,11.83502,79.42822,அரசூர்
-Arunthathiyar Colony,Thiruvennainallur,Villupuram,,11.53054,78.61598,
-Asanur,Thiruvennainallur,Villupuram,,11.62385,79.19069,ஆசனூர்
-Ayyanarpalayam,Thiruvennainallur,Villupuram,,11.50102,78.81499,
-Bharath Nagar,Thiruvennainallur,Villupuram,,11.82662,79.42564,
-Bharathi Nagar,Thiruvennainallur,Villupuram,,11.59362,78.62261,
-Bhuvanagiri,Thiruvennainallur,Villupuram,,11.44142,79.64884,புவனகிரி
-Chinnasalem,Thiruvennainallur,Villupuram,,11.63549,78.88099,சின்னசேலம்
-Dr.MGR Nagar,Thiruvennainallur,Villupuram,,11.57697,78.64942,
-Eadapady,Thiruvennainallur,Villupuram,,11.43613,78.65686,
-Elavanasur,Thiruvennainallur,Villupuram,,11.71407,79.18096,இளவனாசூர்
-Gandhi Nagar,Thiruvennainallur,Villupuram,,11.53293,78.61029,
-Gandhi Puram,Thiruvennainallur,Villupuram,,11.59382,78.65109,
-Gangavalli,Thiruvennainallur,Villupuram,,11.49968,78.64471,கங்கவல்லி
-Iluppaiyur,Thiruvennainallur,Villupuram,,11.67475,79.35777,இலுப்பையூர்
-Indira Nagar,Thiruvennainallur,Villupuram,,11.55182,78.63159,
-Indra Nagar,Thiruvennainallur,Villupuram,,11.59290,78.61950,
-Jeyanthi colony,Thiruvennainallur,Villupuram,,11.47012,78.89439,
-Jothipuram,Thiruvennainallur,Villupuram,,11.52393,78.63978,
-Kadambur,Thiruvennainallur,Villupuram,,11.50193,78.60347,
-Kaikalathur,Thiruvennainallur,Villupuram,,11.47983,78.85642,
-Kallakurichi,Thiruvennainallur,Villupuram,,11.74063,78.96371,கள்ளக்குறிச்சி
-Kallanatham,Thiruvennainallur,Villupuram,,11.60504,78.62875,
-Kallapatti,Thiruvennainallur,Villupuram,,11.43611,78.72370,
-Kariyanur,Thiruvennainallur,Villupuram,,11.48569,78.89125,
-Karuveppilankurichi,Thiruvennainallur,Villupuram,,11.46526,79.32196,கருவேப்பிலாங்குறிச்சி
-Kattu Idaiyar,Thiruvennainallur,Villupuram,,11.85007,79.14067,
-Keezhkalpoondi,Thiruvennainallur,Villupuram,,11.42875,78.95288,கீழக்கல்பூண்டி
-Krishnapuram,Thiruvennainallur,Villupuram,,11.47022,78.61719,
-Kudikadu,Thiruvennainallur,Villupuram,,11.40036,79.31681,
-Kurinjippadi,Thiruvennainallur,Villupuram,,11.56674,79.59447,குறிஞ்சிப்பாடி
-Kurur,Thiruvennainallur,Villupuram,,11.70421,79.02959,
-M G R Nagar,Thiruvennainallur,Villupuram,,11.52782,78.61890,
-MGR Nager,Thiruvennainallur,Villupuram,,11.47142,78.61918,
-Madapattu,Thiruvennainallur,Villupuram,,11.79420,79.40725,மடப்பட்டு
-Madiyanur,Thiruvennainallur,Villupuram,,11.67519,79.34446,மதியனூர்
-Malpalli,Thiruvennainallur,Villupuram,,11.42605,78.61934,
-Mambalapattu,Thiruvennainallur,Villupuram,,11.95695,79.37353,மாம்பழப்பட்டு
-Mangalampet,Thiruvennainallur,Villupuram,,11.63386,79.27912,மங்கலம்பேட்டை
-Manjini,Thiruvennainallur,Villupuram,,11.55571,78.63229,
-Mavilangai,Thiruvennainallur,Villupuram,,11.41882,78.81738,
-Millath Nagar,Thiruvennainallur,Villupuram,,11.40475,78.93179,
-Mudiyanur,Thiruvennainallur,Villupuram,,11.69994,79.03600,
-Mugaiyur,Thiruvennainallur,Villupuram,,11.91440,79.28770,முகையூர்
-N Mottur,Thiruvennainallur,Villupuram,,11.52049,78.66141,
-Nadur,Thiruvennainallur,Villupuram,,11.43784,78.62484,
-Naduvalur,Thiruvennainallur,Villupuram,,11.52178,78.66426,
-Nagampandal,Thiruvennainallur,Villupuram,,11.40958,79.36886,
-Nainakuppam,Thiruvennainallur,Villupuram,,11.69480,79.33499,நைனாகுப்பம்
-Narasingapuram,Thiruvennainallur,Villupuram,,11.44758,78.73299,
-Narikkuravar Colony,Thiruvennainallur,Villupuram,,11.61288,78.64392,
-Natham,Thiruvennainallur,Villupuram,,11.79359,79.47906,நத்தம்
-Naththam,Thiruvennainallur,Villupuram,,11.79406,79.47810,நத்தம்
-Neelamangalam,Thiruvennainallur,Villupuram,,11.72207,79.00294,
-Nerkunam,Thiruvennainallur,Villupuram,,11.43198,78.83852,
-Nerkunam colony,Thiruvennainallur,Villupuram,,11.41287,78.84675,
-Nesavalar Colony,Thiruvennainallur,Villupuram,,11.60678,78.62341,
-Neyveli,Thiruvennainallur,Villupuram,,11.53599,79.48244,நெய்வேலி
-Niraimathi,Thiruvennainallur,Villupuram,,11.71592,79.01150,
-Noothappur,Thiruvennainallur,Villupuram,,11.46368,78.82519,
-Olaiyur,Thiruvennainallur,Villupuram,,11.40597,79.31766,
-Othaiyathur,Thiruvennainallur,Villupuram,,11.54679,78.66268,
-Padhangi,Thiruvennainallur,Villupuram,,11.47742,78.85924,
-Paithur Pudur,Thiruvennainallur,Villupuram,,11.52969,78.60233,
-Palathankari east,Thiruvennainallur,Villupuram,,11.44157,78.67714,
-Palathankari west,Thiruvennainallur,Villupuram,,11.44186,78.67538,
-Palayam,Thiruvennainallur,Villupuram,,11.46964,78.79651,
-Pallakadu,Thiruvennainallur,Villupuram,,11.52861,78.65107,
-Pandagapadi Harijan colony,Thiruvennainallur,Villupuram,,11.41164,78.85669,
-Parikkal,Thiruvennainallur,Villupuram,,11.78515,79.36706,பரிக்கல்
-Pasumbalur,Thiruvennainallur,Villupuram,,11.42800,78.88861,
-Pennadam,Thiruvennainallur,Villupuram,,11.40281,79.24167,பெண்ணாடம்
-Peraiyur,Thiruvennainallur,Villupuram,,11.40038,78.96375,
-Periyakurukkai village,Thiruvennainallur,Villupuram,,11.81728,79.20828,
-Periyammapalayam East,Thiruvennainallur,Villupuram,,11.40307,78.73632,
-Periyammapalayam West,Thiruvennainallur,Villupuram,,11.40611,78.72934,
-Periyar nagar,Thiruvennainallur,Villupuram,,11.47615,78.61692,
-Periyathukurichi,Thiruvennainallur,Villupuram,,11.40914,79.35354,
-Perunila,Thiruvennainallur,Villupuram,,11.49230,78.87063,
-Pilakurichi,Thiruvennainallur,Villupuram,,11.40490,79.31371,
-Pillangulam,Thiruvennainallur,Villupuram,,11.51698,78.85570,
-Pimbalur,Thiruvennainallur,Villupuram,,11.40060,78.90017,
-Poolambadi,Thiruvennainallur,Villupuram,,11.41211,78.71443,
-Pungavadi,Thiruvennainallur,Villupuram,,11.52994,78.61540,
-Rajiv Gandhi Nagar,Thiruvennainallur,Villupuram,,11.56245,78.63566,
-Ramji Nagar,Thiruvennainallur,Villupuram,,11.42027,78.93502,
-Rayappa Nagar,Thiruvennainallur,Villupuram,,11.40089,78.93584,
-Reddipalayam,Thiruvennainallur,Villupuram,,11.40133,79.39091,
-Samathuvapuram,Thiruvennainallur,Villupuram,,11.52236,78.64098,
-Sekkaramedu,Thiruvennainallur,Villupuram,,11.58733,78.64742,
-Sethiathoppu,Thiruvennainallur,Villupuram,,11.43629,79.54231,சேத்தியாத்தோப்பு
-Siluvaiparam,Thiruvennainallur,Villupuram,,11.42821,79.66614,
-Sirugramam,Thiruvennainallur,Villupuram,,11.79321,79.45469,சிறுகிராமம்
-Sirunila,Thiruvennainallur,Villupuram,,11.45907,78.85178,
-Srimushnam,Thiruvennainallur,Villupuram,,11.40136,79.40459,ஸ்ரீமுஷ்ணம்
-Sriraman Colony,Thiruvennainallur,Villupuram,,11.40500,79.38561,
-Talaivasal,Thiruvennainallur,Villupuram,,11.58546,78.75556,தலைவாசல்
-Tanneerpantal,Thiruvennainallur,Villupuram,,11.48099,78.62284,
-Thedavur,Thiruvennainallur,Villupuram,,11.49436,78.69725,தெடாவூர்
-Thiruvaladurai,Thiruvennainallur,Villupuram,,11.41887,78.94235,
-Thiruvennainalur,Thiruvennainallur,Villupuram,,11.86516,79.36744,திருவெண்ணைநல்லூர்
-Thiyagadurgam,Thiruvennainallur,Villupuram,,11.74178,79.07335,தியாகதுர்கம்
-Tholudur,Thiruvennainallur,Villupuram,,11.40468,79.00947,தொழுதூர்
-Thulukkanur,Thiruvennainallur,Villupuram,,11.60137,78.62603,
-Tittakudi,Thiruvennainallur,Villupuram,,11.40217,79.12107,திட்டக்குடி
-Udumbiam,Thiruvennainallur,Villupuram,,11.43190,78.75785,
-Ulundurpet,Thiruvennainallur,Villupuram,,11.69070,79.31400,
-Ulundurpettai,Thiruvennainallur,Villupuram,,11.69077,79.28869,உளுந்தூர்பேட்டை
-Unathur,Thiruvennainallur,Villupuram,,11.66514,78.78892,
-V Kalathur,Thiruvennainallur,Villupuram,,11.40059,78.92964,
-Vadalur,Thiruvennainallur,Villupuram,,11.55519,79.55507,வடலூர்
-Vadapoondi,Thiruvennainallur,Villupuram,,11.65436,79.09989,
-Vaithiyanatha Puram,Thiruvennainallur,Villupuram,,11.62316,78.63017,
-Valasakkal,Thiruvennainallur,Villupuram,,11.45295,78.64057,
-Valayamadevi,Thiruvennainallur,Villupuram,,11.57163,78.64808,
-Valkaradu,Thiruvennainallur,Villupuram,,11.56733,78.62568,
-Vannarampoondi,Thiruvennainallur,Villupuram,,11.40438,78.92725,
-Vannarampoondi colony,Thiruvennainallur,Villupuram,,11.41567,78.92525,
-Veeraganur,Thiruvennainallur,Villupuram,,11.47614,78.73808,வீரகனூர்
-Velluvadi,Thiruvennainallur,Villupuram,,11.46957,78.90881,
-Velluvadi colony,Thiruvennainallur,Villupuram,,11.46001,78.90661,
-Veppur,Thiruvennainallur,Villupuram,,11.53812,79.12999,வேப்பூர்
-Viluthudaiyan,Thiruvennainallur,Villupuram,,11.41281,79.33975,
-Viraperumanallur,Thiruvennainallur,Villupuram,,11.77583,79.44334,வீரப்பெருமாநல்லூர்
-Virudhachalam,Thiruvennainallur,Villupuram,,11.51640,79.32878,விருத்தாச்சலம்
-Virugavoor,Thiruvennainallur,Villupuram,,11.68749,79.04773,
-kuravar colony,Thiruvennainallur,Villupuram,,11.47981,78.67633,
-Acharapakkam,Tindivanam,Villupuram,,12.40768,79.81724,அச்சரபாக்கம்
-Chinnanerkunam,Tindivanam,Villupuram,,12.14506,79.59051,
-Deevanur,Tindivanam,Villupuram,,12.25209,79.55672,தீவனூர்
-Endathur,Tindivanam,Villupuram,,12.51597,79.77167,
-Kammalampoondi,Tindivanam,Villupuram,,12.56483,79.76702,
-Kutteripattu,Tindivanam,Villupuram,,12.15491,79.60650,கூட்டேரிப்பட்டு
-Mailam,Tindivanam,Villupuram,,12.12755,79.61860,மயிலம்
-Ongur,Tindivanam,Villupuram,,12.32777,79.77833,ஓங்கூர்
-Orathi,Tindivanam,Villupuram,,12.38062,79.69500,ஓரத்தி
-Ramapuram,Tindivanam,Villupuram,,12.46888,79.75341,
-Salavedu,Tindivanam,Villupuram,,12.48268,79.73031,
-Saram,Tindivanam,Villupuram,,12.28271,79.70703,சாரம்
-Theetalam,Tindivanam,Villupuram,,12.54530,79.78937,
-Thellar,Tindivanam,Villupuram,,12.40143,79.55194,தெள்ளாறு
-Thennangur,Tindivanam,Villupuram,,12.55470,79.61410,தென்னாங்கூர்
-Tindivanam,Tindivanam,Villupuram,,12.22617,79.65150,திண்டிவனம்
-Tozhuppedu,Tindivanam,Villupuram,,12.36829,79.78140,தொழுப்பேடு
-Vandavasi,Tindivanam,Villupuram,,12.50560,79.60496,வந்தவாசி
-Alankuppam,Vanur,Villupuram,,12.02128,79.79803,ஆலங்குப்பம்
-Alapakkam,Vanur,Villupuram,,11.59772,79.75663,ஆலப்பாக்கம்
-Allpettai,Vanur,Villupuram,,11.76136,79.76628,
-Anandadhi Nagar,Vanur,Villupuram,,11.76645,79.76679,
-Anantha Kaadai,Vanur,Villupuram,,11.68338,79.74442,
-Annainagar,Vanur,Villupuram,,12.02407,79.80288,அன்னை நகர்
-Annapan Pettai,Vanur,Villupuram,,11.57356,79.75544,
-Arachikuppam,Vanur,Villupuram,,11.78417,79.75008,அரச்சிகுப்பம்
-Ariyakoshts̆rī,Vanur,Villupuram,,11.56889,79.74125,
-Ariyur,Vanur,Villupuram,,11.90736,79.69920,அரியூர்
-Auroville,Vanur,Villupuram,,12.00739,79.80995,ஆரோவில்
-Ayyampettai,Vanur,Villupuram,,11.58686,79.75523,அய்யம்பேட்டை
-Bahour,Vanur,Villupuram,,11.80571,79.74273,பாகூர்
-Bommayapalayam,Vanur,Villupuram,,11.99245,79.85051,பொம்மயபாளையம்
-Chinna Mudaliar Chavadi,Vanur,Villupuram,,11.97780,79.84401,சின்ன முதலியார் சாவடி
-Chinnakanganankuppam,Vanur,Villupuram,,11.78610,79.76773,சின்னகங்கனான்குப்பம்
-Chinnur Puthupettai,Vanur,Villupuram,,11.51577,79.76488,சின்னூர் புதுப்பேட்டை
-Chitiraipettai,Vanur,Villupuram,,11.63813,79.76170,சித்திரைப்பேட்டை
-Cuddalore Old Town,Vanur,Villupuram,,11.71572,79.77113,கடலூர்‌ பழைய நகரம்
-Devanampattanam,Vanur,Villupuram,,11.74817,79.78528,தேவனாம்பட்டினம்
-Edayanchavadi,Vanur,Villupuram,,11.99407,79.80349,இடையன்சாவடி
-Embalam,Vanur,Villupuram,,11.86751,79.71232,ஏம்பலம்
-Irumbai,Vanur,Villupuram,,12.00662,79.78722,இரும்பை
-K. Puthur,Vanur,Villupuram,,11.69034,79.74224,
-Kalitheerthalkuppam,Vanur,Villupuram,,11.92049,79.63113,கலிதீர்தால்குப்பம்
-Kalmandapam,Vanur,Villupuram,,11.87074,79.64942,கல்மண்டபம்
-Kandamangalam,Vanur,Villupuram,,11.91602,79.68690,கண்டமங்கலம்
-Kannarapettai,Vanur,Villupuram,,11.69476,79.74163,கண்ணாரப்பேட்டை
-Karaikkadu,Vanur,Villupuram,,11.67898,79.75536,காரைக்காடு
-Kariamanikkam,Vanur,Villupuram,,11.87082,79.62971,கரியமாணிக்கம்
-Karikalampakkam,Vanur,Villupuram,,11.86439,79.74905,கரிக்கலாம்பாக்கம்
-Kiliyanur,Vanur,Villupuram,,12.10581,79.74596,கிளியனூர்
-Koliyanur,Vanur,Villupuram,,11.99500,79.61460,கொளியனூர்
-Kondur,Vanur,Villupuram,,11.86761,79.67517,கோண்டூர்
-Koodapakkam,Vanur,Villupuram,,11.93615,79.73031,கூடப்பாக்கம்
-Koravallimedu,Vanur,Villupuram,,11.79208,79.77982,
-Korkadu,Vanur,Villupuram,,11.88044,79.74704,கோர்காடு
-Kotamedu,Vanur,Villupuram,,11.97277,79.83957,கோட்டமேடு
-Kottakarai,Vanur,Villupuram,,12.01290,79.79654,கோட்டைக்கரை
-Kottakuppam,Vanur,Villupuram,,11.96766,79.83783,கோட்டக்குப்பம்
-Kudikkadu,Vanur,Villupuram,,11.68431,79.75501,
-Kuilapalayam,Vanur,Villupuram,,11.98992,79.83225,குயிலாப்பாளையம்
-Kumandanmedu,Vanur,Villupuram,,11.77813,79.75593,
-Kumarapettai,Vanur,Villupuram,,11.55664,79.75678,குமாரப்பேட்டை
-Kuruvinatham,Vanur,Villupuram,,11.79575,79.73466,குருவிநத்தம்
-Kuttiyankuppam,Vanur,Villupuram,,11.82610,79.71138,குட்டியாங்குப்பம்
-Madava Pallam,Vanur,Villupuram,,11.56169,79.75675,
-Manalipet,Vanur,Villupuram,,12.02704,79.62925,
-Mangalam,Vanur,Villupuram,,11.89323,79.73564,மங்கலம்
-Mannadipet,Vanur,Villupuram,,11.98414,79.62300,மண்ணாடிப்பட்டு
-Moorthikuppam,Vanur,Villupuram,,11.79208,79.78810,மூர்த்திகுப்பம்
-Morattandi,Vanur,Villupuram,,11.97933,79.78730,மொரட்டாண்டி
-Mudasal Odai,Vanur,Villupuram,,11.48293,79.77265,
-Muzhukkuthurai,Vanur,Villupuram,,11.46639,79.77851,
-NGO Nagar,Vanur,Villupuram,,11.76521,79.77500,
-Naanamedu,Vanur,Villupuram,,11.77921,79.78200,
-Nallavadu,Vanur,Villupuram,,11.85730,79.81320,
-Narambai,Vanur,Villupuram,,11.81204,79.79990,நரம்பை
-Nayakkar Pettai,Vanur,Villupuram,,11.61351,79.75682,நாயக்கர்‌ பேட்டை
-Nellikkuppam,Vanur,Villupuram,,11.77561,79.67164,நெல்லிக்குப்பம்
-Nettapakkam,Vanur,Villupuram,,11.86466,79.63391,நெட்டப்பாக்கம்
-Nochikadu,Vanur,Villupuram,,11.65226,79.75134,நொச்சிக்காடு
-Ozhukarai,Vanur,Villupuram,,11.94140,79.80646,உழவர்கரை
-Pachayankuppam,Vanur,Villupuram,,11.70063,79.76034,பச்சயங்குப்பம்
-Pachchyankuppam,Vanur,Villupuram,,11.69300,79.75039,பச்சையாங்குப்பம்
-Pakkam,Vanur,Villupuram,,11.86066,79.68409,பாக்கம்
-Pallinaliyanur,Vanur,Villupuram,,11.90747,79.64899,பள்ளினலியனூர்
-Pallithennal,Vanur,Villupuram,,11.90150,79.72474,பள்ளித்தென்னல்
-Panitithu,Vanur,Villupuram,,11.82833,79.80313,பனித்திட்டு
-Periya Karaikkadu,Vanur,Villupuram,,11.66990,79.74175,பெரிய காரைக்காடு
-Periya Mudaliar Chavadi,Vanur,Villupuram,,11.98295,79.84666,பெரிய முதலியார் சாவடி
-Periyakanganankuppam,Vanur,Villupuram,,11.77675,79.76535,பெரியகங்கனாங்குப்பம்
-Periyakattupalayam,Vanur,Villupuram,,11.85189,79.79581,பெரியகாட்டுப் பாளையம்
-Periyakuppam,Vanur,Villupuram,,11.60661,79.75752,பெரியகுப்பம்
-Periyandikuli,Vanur,Villupuram,,11.55895,79.74132,
-Pillayarkuppam,Vanur,Villupuram,,11.81065,79.77927,பிள்ளையார்குப்பம்
-Pooranamkuppam,Vanur,Villupuram,,11.86601,79.81545,
-Pudukuppam,Vanur,Villupuram,,11.79001,79.79641,
-Raasapettai,Vanur,Villupuram,,11.68278,79.77058,ராசாபேட்டை
-Ranganathapuram,Vanur,Villupuram,,12.04537,79.70686,ரங்கநாதபுரம்
-Rayapettai,Vanur,Villupuram,,12.02450,79.79975,ராயபேட்டை
-Reddiyar Pettai,Vanur,Villupuram,,11.57685,79.75561,ரெட்டியார்‌பேட்டை
-Saamiyarpettai,Vanur,Villupuram,,11.54990,79.75692,சாமியார்பேட்டை
-Sangolikuppam,Vanur,Villupuram,,11.68857,79.77183,சங்கொலிகுப்பம்
-Sanjeevi Nagar,Vanur,Villupuram,,12.02081,79.78978,சஞ்சீவி நகர்
-Sedappalayam,Vanur,Villupuram,,11.67674,79.74272,
-Sedarapet,Vanur,Villupuram,,11.99040,79.75027,சேதாரப்பேட்டை
-Sellipet,Vanur,Villupuram,,11.95415,79.69358,செல்லிபட்டு
-Sembiapalayam,Vanur,Villupuram,,11.88438,79.73054,செம்பியபாளையம்
-Sinavarpuram,Vanur,Villupuram,,11.85098,79.80279,
-Singaratope,Vanur,Villupuram,,11.71882,79.77824,சிங்காரத்தோப்பு
-Sonankapum,Vanur,Villupuram,,11.72245,79.78017,
-Subauppaladi,Vanur,Villupuram,,11.78052,79.79323,
-Ta Mannam Pettai,Vanur,Villupuram,,11.61958,79.75874,
-Talanguda,Vanur,Villupuram,,11.76695,79.78926,தாழங்குடா
-Thavalakuppam,Vanur,Villupuram,,11.86135,79.79223,தவளகுப்பம்
-Thirubuvanai,Vanur,Villupuram,,11.91874,79.64850,திருபுவனை
-Thirukkanur,Vanur,Villupuram,,11.99260,79.63953,திருக்கனூர்
-Thondamanatham,Vanur,Villupuram,,11.96090,79.72717,தொண்டமாநத்தம்
-Thukkanambakkam,Vanur,Villupuram,,11.84202,79.70553,தூக்கணம்பாக்கம்
-Tiruchitrambalam,Vanur,Villupuram,,11.99633,79.77856,திருச்சிற்றம்பலம்
-Ulleripet,Vanur,Villupuram,,11.81997,79.72749,உள்ளேரிபட்டு
-Uruvaiyar,Vanur,Villupuram,,11.89139,79.75211,உறுவையாறு
-Utchimedu,Vanur,Villupuram,,11.78070,79.77103,உச்சிமேடு
-Valudavur,Vanur,Villupuram,,11.97864,79.69744,வழுதாவூர்
-Vanur,Vanur,Villupuram,,12.02445,79.72643,வானூர்
-Varakkalpattu,Vanur,Villupuram,,11.76582,79.70180,வரக்கால்பட்டு
-Veerampattinam,Vanur,Villupuram,,11.89383,79.82457,வீராம்பட்டினம்
-Velingarayan Pettai,Vanur,Villupuram,,11.53753,79.75886,
-Villianur,Vanur,Villupuram,,11.91326,79.75508,வில்லியனூர்
-Vilva Nagar,Vanur,Villupuram,,11.76283,79.76020,வில்வ நகர்
-Brahmadesam,Vikravandi,Villupuram,,12.11769,79.48060,
-Brammadesam,Vikravandi,Villupuram,,12.11938,79.48649,
-Chendur,Vikravandi,Villupuram,,12.12291,79.58543,செண்டுர்
-E.Mandagapattu,Vikravandi,Villupuram,,12.10754,79.46039,
-Echchanguppam,Vikravandi,Villupuram,,12.10969,79.47340,
-Ennayiram,Vikravandi,Villupuram,,12.12427,79.49148,
-Esalam,Vikravandi,Villupuram,,12.11013,79.50204,
-Mundiyambakkam,Vikravandi,Villupuram,,11.99816,79.51550,முண்டியம்பாக்கம்
-Muttatur,Vikravandi,Villupuram,,12.11335,79.44540,
-Nedi,Vikravandi,Villupuram,,12.12627,79.57380,நெடி
-Nedimoliyanur,Vikravandi,Villupuram,,12.14040,79.55937,நெடிமோழியனூர்
-Nemur,Vikravandi,Villupuram,,12.09723,79.45230,
-Palappattu,Vikravandi,Villupuram,,12.11377,79.57149,பலப்பட்டு
-Panayapuram,Vikravandi,Villupuram,,12.00818,79.53532,பனையபுரம்
-Periyathachur,Vikravandi,Villupuram,,12.10819,79.52681,
-Pidaripattu,Vikravandi,Villupuram,,12.13483,79.49991,
-Radhapuram,Vikravandi,Villupuram,,12.00111,79.58567,இராதாபுரம்
-Thirunandipuram,Vikravandi,Villupuram,,12.12624,79.49095,
-Thumbur,Vikravandi,Villupuram,,12.02245,79.47633,
-Velangampadi,Vikravandi,Villupuram,,12.13571,79.59202,
-Vikravandi,Vikravandi,Villupuram,,12.03738,79.54356,விக்கிரவாண்டி
-Alapakkam,Villupuram,Villupuram,,11.60179,79.72016,ஆலப்பாக்கம்
-B.Mutlur,Villupuram,Villupuram,,11.47069,79.70753,பி.முட்லூர்
-C.Mutlur,Villupuram,Villupuram,,11.44366,79.70906,சி.முட்லூர்
-Chinnandikuli,Villupuram,Villupuram,,11.54977,79.74164,
-Irulankuppam,Villupuram,Villupuram,,11.75278,79.57548,இருளன் குப்பம்
-K.Panchankuppam,Villupuram,Villupuram,,11.52768,79.74101,
-Kadampuliyur,Villupuram,Villupuram,,11.70135,79.55118,காடாம்புலியூர்
-Kandarakottai,Villupuram,Villupuram,,11.82871,79.55624,கண்டரக்கோட்டை
-Keezhachavadi,Villupuram,Villupuram,,11.43960,79.75552,கீழச்சாவடி
-Killai,Villupuram,Villupuram,,11.44780,79.76800,கிள்ளை
-Kolliyanur,Villupuram,Villupuram,,11.92675,79.55072,கோலியனூர்
-Kullanchavadi,Villupuram,Villupuram,,11.62808,79.66922,குள்ளஞ்சாவடி
-Kumalankulam,Villupuram,Villupuram,,11.72906,79.64360,
-Maducarai,Villupuram,Villupuram,,11.87051,79.60709,மதுக்கரை
-Palur,Villupuram,Villupuram,,11.75641,79.62280,பாலூர்
-Panjamadevi,Villupuram,Villupuram,,11.87263,79.54983,பஞ்சமாதேவி
-Panruti,Villupuram,Villupuram,,11.77228,79.55190,பண்ருட்டி
-Parangipettai,Villupuram,Villupuram,,11.49057,79.75690,பரங்கிப்பேட்டை
-Pichavaram,Villupuram,Villupuram,,11.43311,79.78071,பிச்சாவரம்
-Sathipattu,Villupuram,Villupuram,,11.74064,79.58094,சாத்திப்பட்டு
-Surapattu,Villupuram,Villupuram,,12.00643,79.43143,
-TS Pettai,Villupuram,Villupuram,,11.41035,79.79489,
-Vadakku Pichavaram,Villupuram,Villupuram,,11.43669,79.77880,
-Valavanur,Villupuram,Villupuram,,11.92050,79.57767,வளவனூர்
-Vazapattu,Villupuram,Villupuram,,12.00370,79.42080,வாழப்பட்டு
-Villiyanallur,Villupuram,Villupuram,,11.53685,79.71242,வில்லியநல்லூர்
-Villupuram,Villupuram,Villupuram,,11.93980,79.49470,விழுப்புரம்
-Viluppuram,Villupuram,Villupuram,,11.94259,79.49506,விழுப்புரம்
+village,taluk,district,census_code,lat,lng,name_ta,place_type
+Alampoondi,,Villupuram,,12.24770,79.33782,,village
+Anathur,,Villupuram,,11.81552,79.47202,ஆனத்தூர்,village
+Anumandai,,Villupuram,,12.13038,79.91122,அனுமந்தை,village
+Anumanthai Kuppam,,Villupuram,,12.12091,79.91900,,village
+Appampattu,,Villupuram,,12.21340,79.41695,,village
+Arakandanallur,,Villupuram,,11.97457,79.22252,அரகண்டநல்லூர்,village
+Arasur,,Villupuram,,11.83502,79.42822,அரசூர்,village
+Auroville,,Villupuram,,12.00739,79.80995,ஆரோவில்,town
+Avalurpet,,Villupuram,,12.33714,79.24105,அவலூர்பேட்டை,village
+Ayandur,,Villupuram,,11.96588,79.33975,ஆயந்தூர்,village
+Bharath Nagar,,Villupuram,,11.82662,79.42564,,village
+Bommayapalayam,,Villupuram,,11.99245,79.85051,பொம்மயபாளையம்,village
+Brahmadesam,,Villupuram,,12.11769,79.48060,,village
+Brammadesam,,Villupuram,,12.11938,79.48649,,village
+Chendur,,Villupuram,,12.12291,79.58543,செண்டுர்,village
+Chettinagar,,Villupuram,,12.10203,79.90536,,village
+Chinna Mudaliar Chavadi,,Villupuram,,11.97780,79.84401,சின்ன முதலியார் சாவடி,village
+Chinnanerkunam,,Villupuram,,12.14506,79.59051,,village
+Deevanur,,Villupuram,,12.25209,79.55672,தீவனூர்,village
+Devanur,,Villupuram,,11.97874,79.21106,,hamlet
+E.Mandagapattu,,Villupuram,,12.10754,79.46039,,village
+Echchanguppam,,Villupuram,,12.10969,79.47340,,village
+Edayanchavadi,,Villupuram,,11.99407,79.80349,இடையன்சாவடி,village
+Ekkiar Kuppam,,Villupuram,,12.18367,79.96003,,village
+Ennayiram,,Villupuram,,12.12427,79.49148,,village
+Esalam,,Villupuram,,12.11013,79.50204,,village
+Gengavaram,,Villupuram,,12.15001,79.33108,கெங்கவரம்,village
+Gingee,,Villupuram,,12.25442,79.41578,செஞ்சி,town
+Irumbai,,Villupuram,,12.00662,79.78722,இரும்பை,village
+Kandachipuram,,Villupuram,,12.03542,79.29896,கண்டாச்சிபுரம்,village
+Kandamangalam,,Villupuram,,11.91602,79.68690,கண்டமங்கலம்,village
+Kedar,,Villupuram,,12.00984,79.40625,,village
+Keelpettai,,Villupuram,,12.13561,79.92878,,village
+Kiliyanur,,Villupuram,,12.10581,79.74596,கிளியனூர்,village
+Kilputhupattu,,Villupuram,,12.05609,79.87456,கீழ்புத்துப்பட்டு,village
+Kolliyanur,,Villupuram,,11.92675,79.55072,கோலியனூர்,village
+Kondur,,Villupuram,,11.86761,79.67517,கோண்டூர்,village
+Koonimedu,,Villupuram,,12.08858,79.89171,கூனிமேடு,village
+Kotamedu,,Villupuram,,11.97277,79.83957,கோட்டமேடு,village
+Kottakarai,,Villupuram,,12.01290,79.79654,கோட்டைக்கரை,village
+Kottakuppam,,Villupuram,,11.96766,79.83783,கோட்டக்குப்பம்,town
+Kuilapalayam,,Villupuram,,11.98992,79.83225,குயிலாப்பாளையம்,village
+Kuladeepamangalam,,Villupuram,,11.97861,79.18588,,hamlet
+Kutteripattu,,Villupuram,,12.15491,79.60650,கூட்டேரிப்பட்டு,village
+Mailam,,Villupuram,,12.12755,79.61860,மயிலம்,village
+Mambalapattu,,Villupuram,,11.95695,79.37353,மாம்பழப்பட்டு,village
+Manampoondi,,Villupuram,,11.97709,79.20296,மணம்பூண்டி,village
+Marakkanam,,Villupuram,,12.19593,79.94418,மரக்காணம்,town
+Melmalaiyanur,,Villupuram,,12.34104,79.32645,மேல்மலையனூர்,village
+Morattandi,,Villupuram,,11.97933,79.78730,மொரட்டாண்டி,village
+Mudailar Kuppam,,Villupuram,,12.06338,79.88230,முதலியார்குப்பம்,village
+Mugaiyur,,Villupuram,,11.97603,79.30959,முகையூர்,village
+Mundiyambakkam,,Villupuram,,11.99816,79.51550,முண்டியம்பாக்கம்,village
+Murukkeri,,Villupuram,,12.20326,79.84078,முருக்கேரி,village
+Muttatur,,Villupuram,,12.11335,79.44540,,village
+Nayampadi,,Villupuram,,12.22843,79.32724,,village
+Nedi,,Villupuram,,12.12627,79.57380,நெடி,village
+Nedimoliyanur,,Villupuram,,12.14040,79.55937,நெடிமோழியனூர்,village
+Nemur,,Villupuram,,12.09723,79.45230,,village
+Ongur,,Villupuram,,12.32777,79.77833,ஓங்கூர்,village
+Ottampattu,,Villupuram,,12.15424,79.42855,,hamlet
+Pachinamedu,,Villupuram,,12.09635,79.89946,,village
+Pakkam,,Villupuram,,11.86066,79.68409,பாக்கம்,village
+Palappattu,,Villupuram,,12.11377,79.57149,பலப்பட்டு,village
+Pallapattu,,Villupuram,,12.17576,79.42728,,hamlet
+Pallinaliyanur,,Villupuram,,11.90747,79.64899,பள்ளினலியனூர்,village
+Pallithennal,,Villupuram,,11.90150,79.72474,பள்ளித்தென்னல்,village
+Panayapuram,,Villupuram,,12.00818,79.53532,பனையபுரம்,village
+Panjamadevi,,Villupuram,,11.87263,79.54983,பஞ்சமாதேவி,village
+Periya Mudaliar Chavadi,,Villupuram,,11.98295,79.84666,பெரிய முதலியார் சாவடி,village
+Periyathachur,,Villupuram,,12.10819,79.52681,,village
+Pidaripattu,,Villupuram,,12.13483,79.49991,,village
+Radhapuram,,Villupuram,,12.00111,79.58567,இராதாபுரம்,village
+Ranganathapuram,,Villupuram,,12.04537,79.70686,ரங்கநாதபுரம்,village
+Saram,,Villupuram,,12.28271,79.70703,சாரம்,village
+Soolayuthamman,,Villupuram,,12.07557,79.88959,,village
+Surapattu,,Villupuram,,12.00643,79.43143,,village
+Thirunandipuram,,Villupuram,,12.12624,79.49095,,village
+Thiruvennainalur,,Villupuram,,11.86516,79.36744,திருவெண்ணைநல்லூர்,village
+Thumbur,,Villupuram,,12.02245,79.47633,,hamlet
+Tindivanam,,Villupuram,,12.22617,79.65150,திண்டிவனம்,town
+Tiruchitrambalam,,Villupuram,,11.99633,79.77856,திருச்சிற்றம்பலம்,village
+Valavanur,,Villupuram,,11.92050,79.57767,வளவனூர்,village
+Valudavur,,Villupuram,,11.97864,79.69744,வழுதாவூர்,village
+Vanur,,Villupuram,,12.02445,79.72643,வானூர்,village
+Vazapattu,,Villupuram,,12.00370,79.42080,வாழப்பட்டு,village
+Veerangipuram,,Villupuram,,12.03093,79.35148,வீராங்கிப்புரம்,village
+Veerapandi,,Villupuram,,12.04777,79.21499,வீரபாண்டி,village
+Velangampadi,,Villupuram,,12.13571,79.59202,,village
+Vikravandi,,Villupuram,,12.03738,79.54356,விக்கிரவாண்டி,town
+Viluppuram,,Villupuram,,11.94259,79.49506,விழுப்புரம்,town

@@ -132,8 +132,15 @@ class Village(Base):
         Index("ix_villages_name", "name"),
         Index("ix_villages_district", "district_id"),
         Index("ix_villages_taluk", "taluk_id"),
+        # census_code is part of identity: two villages in the same taluk may
+        # legitimately share a name but carry different official census codes
+        # (e.g. Madurai's intra-block duplicates). Merging them by name alone
+        # would silently drop a government-listed village.
         UniqueConstraint(
-            "taluk_id", "name_normalized", name="uq_village_taluk_name"
+            "taluk_id",
+            "name_normalized",
+            "census_code",
+            name="uq_village_taluk_name_code",
         ),
     )
 
@@ -273,3 +280,6 @@ class AlertSubscription(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
+
+    bus: Mapped["Bus"] = relationship()
+    stop_village: Mapped["Village"] = relationship()

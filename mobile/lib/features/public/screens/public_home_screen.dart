@@ -25,10 +25,12 @@ class _PublicHomeScreenState extends State<PublicHomeScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       final controller = context.read<PublicController>();
-      if (controller.districts.isEmpty) controller.loadDistricts();
-      controller.loadFavorites();
+      if (controller.districts.isEmpty) await controller.loadDistricts();
+      final restored = await controller.restoreDistrict();
+      if (!restored) await controller.autoDetectDistrict();
+      await controller.loadFavorites();
     });
   }
 
@@ -45,7 +47,14 @@ class _PublicHomeScreenState extends State<PublicHomeScreen> {
   }
 
   Future<void> _openDriverMode() async {
-    final token = await AppStorage.accessToken;
+    String? token;
+    try {
+      token = await AppStorage.accessToken;
+    } catch (_) {
+      // Secure storage is unavailable off HTTPS (e.g. plain-HTTP web demo).
+      // Treat the driver as logged out.
+      token = null;
+    }
     if (!mounted) return;
     if (token != null) {
       final repo = context.read<AppRepository>();
